@@ -11,38 +11,43 @@ body {
     font-family: Arial, sans-serif;
     background: #0b1c2c;
     color: white;
-    padding-top: 130px;
 }
 
 /* NAVBAR */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
     background: #0b1c2c;
-    z-index: 1000;
-    padding: 10px 40px;
+    padding: 15px 40px;
 }
 
-/* BRAND BLOCK */
-.brand-block {
+/* LOGO BLOCK */
+.brand {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-.main-logo {
-    height: 90px;
+/* MAIN LOGO */
+.brand img {
+    height: 70px;
+    width: auto;
 }
 
-.logo-text {
-    height: 45px;
-    margin-top: -12px;
+/* TEXT LOGO */
+.brand-text {
+    height: 40px;
+    width: auto;
 }
 
 /* HERO */
+.hero {
+    text-align: center;
+    padding-top: 10px;
+}
+
 .hero img {
-    width: 100%;
-    max-height: 100vh;
+    width: 95%;
+    max-width: 1200px;
+    height: auto;
     object-fit: contain;
 }
 
@@ -52,9 +57,8 @@ body {
     text-align: center;
 }
 
-/* SLIDESHOW */
+/* SLIDER */
 .slider {
-    position: relative;
     max-width: 900px;
     margin: auto;
 }
@@ -69,7 +73,7 @@ body {
     border-radius: 10px;
 }
 
-/* CONTACT FORM */
+/* CONTACT */
 textarea {
     width: 80%;
     max-width: 500px;
@@ -90,7 +94,6 @@ button {
     cursor: pointer;
 }
 
-/* ADDRESS */
 .address {
     margin-top: 20px;
     line-height: 1.6;
@@ -103,9 +106,12 @@ button {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div class="brand-block">
-        <img src="assets/img/logo.png" class="main-logo">
-        <img src="assets/img/logo-text.png" class="logo-text">
+    <div class="brand">
+        <!-- YOUR MAIN LOGO -->
+        <img src="assets/img/logo.png">
+
+        <!-- TEXT IMAGE (CONSTELLATION-DELTA GROUP) -->
+        <img src="assets/img/logo-text.png" class="brand-text">
     </div>
 </div>
 
@@ -153,7 +159,7 @@ button {
     </div>
 </section>
 
-<!-- SCRIPT -->
+<!-- SLIDER SCRIPT -->
 <script>
 let slideIndex = 0;
 showSlides();
