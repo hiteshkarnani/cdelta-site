@@ -11,6 +11,7 @@
 body {
     background-color: #0b1c2c;
     color: #fff;
+    margin: 0;
 }
 
 /* NAVBAR */
@@ -22,14 +23,13 @@ body {
     height: 90px;
 }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    background: url('assets/img/header-bg.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* HERO IMAGE FIX (NO CUTTING) */
+.hero img {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: contain;
+    display: block;
 }
 
 /* SECTION */
@@ -37,11 +37,10 @@ body {
     padding: 80px 0;
 }
 
-/* SLIDESHOW */
+/* SLIDER */
 .slider {
     max-width: 900px;
     margin: auto;
-    position: relative;
 }
 
 .slide {
@@ -52,7 +51,7 @@ body {
 .slide img {
     width: 100%;
     height: 400px;
-    object-fit: contain; /* 🔥 NO CUTTING */
+    object-fit: contain;
     background: #000;
     border-radius: 10px;
 }
@@ -86,12 +85,9 @@ body {
 </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO (FIXED) -->
 <section class="hero">
-<div>
-<h1>Constellation-Delta Group</h1>
-<p>Strategic Insight. Resilient Solutions.</p>
-</div>
+<img src="assets/img/header-bg.jpg">
 </section>
 
 <!-- CORE VERTICALS SLIDER -->
@@ -101,7 +97,6 @@ body {
 
 <div class="slider">
 
-<!-- SLIDE 1 -->
 <div class="slide">
 <img src="assets/img/delta-linkage.jpg">
 <div class="caption">
@@ -110,7 +105,6 @@ body {
 </div>
 </div>
 
-<!-- SLIDE 2 -->
 <div class="slide">
 <img src="assets/img/delta-consultancies.jpg">
 <div class="caption">
@@ -119,7 +113,6 @@ body {
 </div>
 </div>
 
-<!-- SLIDE 3 -->
 <div class="slide">
 <img src="assets/img/delta-pixels.jpg">
 <div class="caption">
@@ -192,7 +185,7 @@ function showSlides() {
 
     slides[slideIndex - 1].style.display = "block";
 
-    setTimeout(showSlides, 3000); // change every 3 sec
+    setTimeout(showSlides, 3000);
 }
 </script>
 
