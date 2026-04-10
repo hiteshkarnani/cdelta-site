@@ -1,113 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constellation-Delta Group</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constellation-Delta Group</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="assets/favicon.ico">
+<link rel="icon" href="assets/favicon.ico">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b2a3c;
-            color: white;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* HERO */
-        .hero {
-            height: 100vh;
-            background: url('assets/img/header-bg.jpg') no-repeat center center;
-            background-size: cover;
-            position: relative;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #0b2a3c;
+    color: white;
+    overflow-x: hidden; /* 🔥 removes side gap */
+}
 
-        /* NAVBAR */
-        .navbar {
-            position: absolute;
-            top: 10px;
-            width: 100%;
-            padding: 0 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* HERO */
+.hero {
+    height: 100vh;
+    width: 100%;
+    background: url('assets/img/header-bg.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
 
-        .brand img {
-            height: 100px; /* 25% increased */
-        }
+/* NAVBAR */
+.navbar {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .nav-btn {
-            padding: 10px 20px;
-            border: 2px solid gold;
-            color: gold;
-            background: transparent;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+/* LOGO */
+.brand img {
+    height: 110px; /* increased */
+}
 
-        /* SECTION */
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
+/* BUTTON */
+.nav-btn {
+    padding: 10px 20px;
+    border: 2px solid gold;
+    color: gold;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
-        h2 {
-            color: gold;
-        }
+/* SECTION */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
 
-        /* SLIDESHOW */
-        .slideshow {
-            max-width: 600px;
-            margin: auto;
-        }
+h2 {
+    color: gold;
+    margin-bottom: 20px;
+}
 
-        .slideshow img {
-            width: 100%;
-            border-radius: 10px;
-        }
+/* SLIDESHOW */
+.slideshow {
+    max-width: 600px;
+    margin: auto;
+}
 
-        .description {
-            margin-top: 20px;
-            font-size: 16px;
-        }
+.slideshow img {
+    width: 100%;
+    border-radius: 10px;
+}
 
-        /* CONTACT */
-        .contact-box {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+.description {
+    margin-top: 20px;
+    font-size: 16px;
+}
 
-        input, textarea {
-            padding: 12px;
-            border-radius: 8px;
-            border: none;
-            width: 300px;
-        }
+/* CONTACT */
+.contact-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
-        textarea {
-            width: 400px;
-            height: 80px;
-        }
+input, textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+}
 
-        button.send-btn {
-            background: gold;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+input {
+    width: 280px;
+}
 
-        /* ADDRESS */
-        .address {
-            margin-top: 30px;
-            line-height: 1.6;
-        }
-    </style>
+textarea {
+    width: 380px;
+    height: 80px;
+}
+
+.send-btn {
+    background: gold;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ADDRESS */
+.address {
+    margin-top: 30px;
+    line-height: 1.6;
+}
+</style>
 </head>
 
 <body>
@@ -164,25 +177,25 @@
 </section>
 
 <script>
-    const images = [
-        "assets/img/delta-linkage.jpg",
-        "assets/img/delta-consultancies.jpg",
-        "assets/img/delta-pixels.jpg"
-    ];
+const images = [
+    "assets/img/delta-linkage.jpg",
+    "assets/img/delta-consultancies.jpg",
+    "assets/img/delta-pixels.jpg"
+];
 
-    const texts = [
-        "We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities.",
-        "We provide strategic consulting, risk analysis, and business solutions that drive sustainable growth.",
-        "We deliver creative digital solutions including branding, design, and modern digital presence."
-    ];
+const texts = [
+    "We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities.",
+    "We provide strategic consulting, risk analysis, and business solutions that drive sustainable growth.",
+    "We deliver creative digital solutions including branding, design, and modern digital presence."
+];
 
-    let index = 0;
+let index = 0;
 
-    setInterval(() => {
-        index = (index + 1) % images.length;
-        document.getElementById("slideImage").src = images[index];
-        document.getElementById("slideText").innerText = texts[index];
-    }, 5000); // 5 seconds
+setInterval(() => {
+    index = (index + 1) % images.length;
+    document.getElementById("slideImage").src = images[index];
+    document.getElementById("slideText").innerText = texts[index];
+}, 5000);
 </script>
 
 </body>
