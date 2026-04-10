@@ -1,184 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Constellation-Delta Group</title>
-
-<link href="css/styles.css" rel="stylesheet">
-
-<style>
-body {
-    background-color: #0b1c2c;
-    color: #ffffff;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-}
-
-.hero {
-    background: url('assets/img/header-bg.jpg') center/cover no-repeat;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: #c8a96a;
-}
-
-.section {
-    padding: 80px 20px;
-}
-
-.gold {
-    color: #c8a96a;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.col {
-    flex: 1;
-    min-width: 280px;
-}
-
-.card {
-    background: #112a44;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.footer {
-    background: #081520;
-    padding: 40px;
-    text-align: center;
-}
-</style>
-</head>
-
-<body>
-
-<!-- HERO -->
-<section class="hero">
-    <div>
-        <h1>Constellation-Delta Group</h1>
-        <p>Strategic Insight. Resilient Solutions.</p>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section text-center">
+<!-- HERO SECTION -->
+<header class="masthead" style="background-image: url('assets/img/header-bg.jpg');">
     <div class="container">
-        <h2 class="gold">About Us</h2>
-        <p>
-            We are a multi-disciplinary consulting group delivering strategic,
-            operational, and market execution solutions across industries.
-        </p>
+        <div class="masthead-subheading">Strategic Insight. Resilient Solutions.</div>
+        <div class="masthead-heading text-uppercase">Constellation-Delta Group</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Explore Services</a>
     </div>
-</section>
+</header>
 
-<!-- DIVISIONS -->
-<section class="section">
+<!-- SERVICES -->
+<section class="page-section" id="services">
     <div class="container">
-        <h2 class="gold" style="text-align:center;">Our Divisions</h2>
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Our Divisions</h2>
+            <h3 class="section-subheading text-muted">Three pillars driving impact.</h3>
+        </div>
 
-        <div class="row">
-
-            <div class="col">
-                <div class="card">
-                    <img src="assets/img/about/1.jpg">
-                    <div class="card-body">
-                        <h3>Delta Linkage</h3>
-                        <p>Market Access & Strategic Partnership</p>
-                    </div>
-                </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h4 class="my-3">Delta Linkage</h4>
+                <p class="text-muted">
+                    Market Access & Strategic Partnerships. Connecting businesses with buyers, distributors, and institutions for scalable growth.
+                </p>
             </div>
 
-            <div class="col">
-                <div class="card">
-                    <img src="assets/img/about/2.jpg">
-                    <div class="card-body">
-                        <h3>Delta Consultancies</h3>
-                        <p>Business Advisory & Strategic Consulting</p>
-                    </div>
-                </div>
+            <div class="col-md-4">
+                <h4 class="my-3">Delta Consultancies</h4>
+                <p class="text-muted">
+                    Business Consulting, Risk Management & Disaster Preparedness. Helping organizations build resilient systems and sustainable growth strategies.
+                </p>
             </div>
 
-            <div class="col">
-                <div class="card">
-                    <img src="assets/img/about/3.jpg">
-                    <div class="card-body">
-                        <h3>Delta Pixels</h3>
-                        <p>PR Communication & Reputation Management</p>
-                    </div>
-                </div>
+            <div class="col-md-4">
+                <h4 class="my-3">Delta Pixels</h4>
+                <p class="text-muted">
+                    PR Communication & Reputation Management. Crafting strong digital presence and brand positioning.
+                </p>
             </div>
-
         </div>
     </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section text-center">
+<!-- ABOUT (uses your images correctly) -->
+<section class="page-section" id="about">
     <div class="container">
-        <h2 class="gold">Core Services</h2>
-        <p>
-            Business Consulting • Risk Management & Mitigation • Disaster Preparedness • Market Linkage Services
-        </p>
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">About Us</h2>
+            <h3 class="section-subheading text-muted">Driven by strategy. Built for resilience.</h3>
+        </div>
+
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" />
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Foundation</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">Built with a vision to bridge strategy, execution, and growth.</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" />
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Expansion</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">Scaling through market linkage and advisory excellence.</p>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" />
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Integration</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">Combining consulting, partnerships, and communication into one ecosystem.</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" />
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Today</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">A growing group focused on impact, scale, and execution.</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Leadership</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" />
+                    <h4>Founder</h4>
+                    <p class="text-muted">Strategy & Vision</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" />
+                    <h4>Operations</h4>
+                    <p class="text-muted">Execution & Growth</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" />
+                    <h4>Communications</h4>
+                    <p class="text-muted">Brand & PR</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section text-center">
-    <div class="container">
-        <h2 class="gold">Contact</h2>
+<section class="page-section" id="contact">
+    <div class="container text-center">
+        <h2 class="section-heading text-uppercase">Contact</h2>
+        <p class="text-muted">Reach us directly via email</p>
 
-        <p><strong>Constellation-Delta Group</strong></p>
-
-        <p>
-        Maheshwari Marg, Near Taal Maidan,<br>
-        Sardarshahar, Rajasthan 331403
-        </p>
+        <p><strong>Email:</strong> your@email.com</p>
 
         <p>
-        A02, D-Block, Behind WTP,<br>
-        Malviya Nagar, Jaipur 302017
+            Maheshwari Marg, Sardarshahar, Rajasthan<br>
+            Jaipur Office – Malviya Nagar
         </p>
-
-        <p>Email: contact@cdelta.in</p>
     </div>
 </section>
-
-<!-- FOOTER -->
-<div class="footer">
-    <p>© 2026 Constellation-Delta Group. All Rights Reserved.</p>
-</div>
-
-</body>
-</html>
