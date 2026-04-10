@@ -23,7 +23,7 @@ body {
     display: block;
 }
 
-/* NAVBAR ON HERO */
+/* NAVBAR */
 .navbar {
     position: absolute;
     top: 10px;
@@ -36,9 +36,9 @@ body {
     box-sizing: border-box;
 }
 
-/* LOGO */
+/* LOGO (INCREASED BY 25%) */
 .brand img {
-    height: 95px;
+    height: 120px; /* was ~95px → now increased */
 }
 
 /* BUTTON */
@@ -199,7 +199,8 @@ function updateSlide() {
     }, 300);
 }
 
-setInterval(updateSlide, 3500);
+/* 🔥 UPDATED TO 5 SECONDS */
+setInterval(updateSlide, 5000);
 </script>
 
 </body>
