@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Constellation-Delta Group</title>
 
-<!-- 🔥 FAVICON -->
+<!-- FAVICON -->
 <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
 <style>
 body {
@@ -84,19 +81,18 @@ body {
     color: gold;
 }
 
-/* CONTACT */
-textarea {
+/* FORM */
+input, textarea {
     width: 80%;
     max-width: 500px;
-    height: 120px;
     padding: 10px;
     border-radius: 8px;
     border: none;
-    resize: none;
+    margin-top: 10px;
 }
 
 button {
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 10px 25px;
     border: none;
     background: gold;
@@ -105,6 +101,7 @@ button {
     cursor: pointer;
 }
 
+/* ADDRESS */
 .address {
     margin-top: 20px;
     line-height: 1.6;
@@ -145,8 +142,28 @@ button {
 <section class="section">
     <h2>Contact Us</h2>
 
-    <textarea maxlength="500" placeholder="Write your message (max 500 characters)"></textarea><br>
-    <button>Send</button>
+    <!-- 🔥 WORKING FORM -->
+    <form action="https://formspree.io/f/mpqogeao" method="POST">
+
+        <input 
+            type="email" 
+            name="email" 
+            placeholder="Your Email" 
+            required
+        >
+
+        <textarea 
+            name="message"
+            maxlength="500" 
+            placeholder="Write your message (max 500 characters)" 
+            required
+        ></textarea>
+
+        <input type="hidden" name="_subject" value="New message from cdelta.in">
+
+        <button type="submit">Send</button>
+
+    </form>
 
     <div class="address">
         <p><b>Sardarshahar Office</b><br>
