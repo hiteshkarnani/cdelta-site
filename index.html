@@ -16,19 +16,38 @@ body {
 /* NAVBAR */
 .navbar {
     background: #0b1c2c;
-    padding: 15px 40px;
+    padding: 5px 40px; /* reduced top gap */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* LOGO */
 .brand img {
-    height: 90px;   /* slightly bigger for presence */
+    height: 120px; /* increased size */
     width: auto;
+}
+
+/* NAV BUTTON */
+.nav-btn {
+    padding: 10px 20px;
+    border: 1px solid gold;
+    background: transparent;
+    color: gold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: gold;
+    color: black;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding-top: 10px;
+    margin-top: -10px; /* pulls content up */
 }
 
 .hero img {
@@ -85,7 +104,6 @@ button {
     margin-top: 20px;
     line-height: 1.6;
 }
-
 </style>
 </head>
 
@@ -96,6 +114,8 @@ button {
     <div class="brand">
         <img src="assets/img/logo.png">
     </div>
+
+    <button class="nav-btn">About Us</button>
 </div>
 
 <!-- HERO -->
