@@ -1,133 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Constellation-Delta Group</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constellation-Delta Group</title>
 
-<link rel="icon" href="assets/img/favicon.ico">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico">
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b1c2c;
-    color: white;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b2a3c;
+            color: white;
+        }
 
-/* HERO */
-.hero {
-    position: relative;
-}
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: url('assets/img/header-bg.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
 
-.hero img {
-    width: 100%;
-    display: block;
-}
+        /* NAVBAR */
+        .navbar {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* NAVBAR */
-.navbar {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    padding: 0 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .brand img {
+            height: 100px; /* 25% increased */
+        }
 
-/* LOGO */
-.brand img {
-    height: 120px;
-}
+        .nav-btn {
+            padding: 10px 20px;
+            border: 2px solid gold;
+            color: gold;
+            background: transparent;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-/* BUTTON */
-.nav-btn {
-    padding: 10px 18px;
-    border: 1px solid gold;
-    background: rgba(0,0,0,0.4);
-    color: gold;
-    border-radius: 6px;
-    cursor: pointer;
-}
+        /* SECTION */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
 
-/* SECTION */
-.section {
-    padding: 60px 20px;
-    text-align: center;
-}
+        h2 {
+            color: gold;
+        }
 
-/* SLIDER */
-.slider {
-    max-width: 900px;
-    margin: auto;
-}
+        /* SLIDESHOW */
+        .slideshow {
+            max-width: 600px;
+            margin: auto;
+        }
 
-#slider-image {
-    width: 100%;
-    border-radius: 10px;
-    transition: opacity 0.5s;
-}
+        .slideshow img {
+            width: 100%;
+            border-radius: 10px;
+        }
 
-.slider-text {
-    margin-top: 20px;
-    transition: opacity 0.5s;
-}
+        .description {
+            margin-top: 20px;
+            font-size: 16px;
+        }
 
-.slider-text h3 {
-    color: gold;
-}
+        /* CONTACT */
+        .contact-box {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-/* 🔥 CONTACT FORM FIXED */
-.contact-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
+        input, textarea {
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            width: 300px;
+        }
 
-.contact-form input {
-    width: 260px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-}
+        textarea {
+            width: 400px;
+            height: 80px;
+        }
 
-.contact-form textarea {
-    width: 350px;
-    height: 45px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    resize: none;
-}
+        button.send-btn {
+            background: gold;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-.contact-form button {
-    height: 45px;
-    padding: 0 20px;
-    border: none;
-    background: gold;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* ADDRESS */
-.address {
-    margin-top: 30px;
-    line-height: 1.6;
-}
-</style>
+        /* ADDRESS */
+        .address {
+            margin-top: 30px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 
 <body>
 
 <!-- HERO -->
 <section class="hero">
-    <img src="assets/img/header-bg.jpg">
-
     <div class="navbar">
         <div class="brand">
             <img src="assets/img/logo.png">
@@ -138,94 +124,65 @@ body {
 </section>
 
 <!-- CORE VERTICALS -->
-<section class="section">
+<section>
     <h2>Our Core Verticals</h2>
 
-    <div class="slider">
-        <img id="slider-image" src="assets/img/delta-linkage.jpg">
+    <div class="slideshow">
+        <img id="slideImage" src="assets/img/delta-linkage.jpg">
 
-        <div id="slider-text" class="slider-text">
-            <h3>Delta Linkage</h3>
-            <p>We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities.</p>
+        <div class="description" id="slideText">
+            We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities.
         </div>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section">
+<section>
     <h2>Contact Us</h2>
 
-    <form action="https://formspree.io/f/mpqogeao" method="POST" class="contact-form">
-
-        <input type="email" name="email" placeholder="Your Email" required>
-
-        <textarea name="message" maxlength="500" placeholder="Your Message" required></textarea>
-
-        <input type="hidden" name="_subject" value="New message from cdelta.in">
-        <input type="hidden" name="_next" value="https://cdelta.in/thankyou.html">
-
-        <button type="submit">Send</button>
-
+    <form action="https://formspree.io/f/mpqogeao" method="POST">
+        <div class="contact-box">
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" maxlength="500" placeholder="Your Message" required></textarea>
+            <button class="send-btn">Send</button>
+        </div>
     </form>
 
     <div class="address">
-        <p><b>Sardarshahar Office</b><br>
+        <h3>Sardarshahar Office</h3>
         Maheshwari Marg, Near Taal Maidan,<br>
         Opp Satyanarayan Temple,<br>
-        Near Tall, Sardarshahar, RJ 331403</p>
+        Near Tall, Sardarshahar, RJ 331403
 
-        <p><b>Jaipur Office</b><br>
+        <br><br>
+
+        <h3>Jaipur Office</h3>
         A02, D-Block, Behind WTP,<br>
         Mahesh Marg, Malviya Nagar,<br>
-        Jaipur, Rajasthan 302017</p>
+        Jaipur, Rajasthan 302017
     </div>
 </section>
 
-<!-- SCRIPT -->
 <script>
-const slides = [
-    {
-        image: "assets/img/delta-linkage.jpg",
-        title: "Delta Linkage",
-        text: "We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities."
-    },
-    {
-        image: "assets/img/delta-consultancies.jpg",
-        title: "Delta Consultancies",
-        text: "We provide expert consulting in business strategy, risk management, and operational efficiency."
-    },
-    {
-        image: "assets/img/delta-pixels.jpg",
-        title: "Delta Pixels",
-        text: "We craft impactful digital experiences through branding and visual storytelling."
-    }
-];
+    const images = [
+        "assets/img/delta-linkage.jpg",
+        "assets/img/delta-consultancies.jpg",
+        "assets/img/delta-pixels.jpg"
+    ];
 
-let index = 0;
+    const texts = [
+        "We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities.",
+        "We provide strategic consulting, risk analysis, and business solutions that drive sustainable growth.",
+        "We deliver creative digital solutions including branding, design, and modern digital presence."
+    ];
 
-function updateSlide() {
-    const img = document.getElementById("slider-image");
-    const text = document.getElementById("slider-text");
+    let index = 0;
 
-    img.style.opacity = 0;
-    text.style.opacity = 0;
-
-    setTimeout(() => {
-        index = (index + 1) % slides.length;
-
-        img.src = slides[index].image;
-
-        text.innerHTML = `
-            <h3>${slides[index].title}</h3>
-            <p>${slides[index].text}</p>
-        `;
-
-        img.style.opacity = 1;
-        text.style.opacity = 1;
-    }, 300);
-}
-
-setInterval(updateSlide, 5000);
+    setInterval(() => {
+        index = (index + 1) % images.length;
+        document.getElementById("slideImage").src = images[index];
+        document.getElementById("slideText").innerText = texts[index];
+    }, 5000); // 5 seconds
 </script>
 
 </body>
