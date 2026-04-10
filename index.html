@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Constellation-Delta Group</title>
 
-    <link href="css/styles.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
 
     <style>
         body {
             background-color: #0b1c2c;
-            color: #ffffff;
+            color: #fff;
         }
 
-        .section-dark {
-            background: #0b1c2c;
-        }
-
-        .gold {
-            color: #d4af37;
+        .navbar {
+            background-color: #0b1c2c !important;
         }
 
         .hero {
-            background: url('assets/img/header-bg.jpg') center/cover no-repeat;
             height: 100vh;
+            background: url('assets/img/header-bg.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -34,118 +32,124 @@
             font-weight: bold;
         }
 
-        .hero p {
-            color: #d4af37;
-        }
-
         .section {
             padding: 80px 0;
         }
 
-        img.banner {
-            width: 100%;
-            margin-bottom: 30px;
-            border-radius: 6px;
+        .card {
+            background-color: #122b40;
+            border: none;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #d4af37;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #b8962e;
+        }
+
+        .contact-box {
+            background-color: #122b40;
+            padding: 30px;
+            border-radius: 10px;
         }
     </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/logo.png" style="height:40px;">
+        </a>
+    </div>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
     <div>
-        <p>Strategic Insight. Resilient Solutions.</p>
         <h1>Constellation-Delta Group</h1>
+        <p>Strategic Insight. Resilient Solutions.</p>
     </div>
 </section>
 
-<!-- DIVISIONS (YOUR STRONGEST PART) -->
-<section class="section section-dark text-center">
-    <div class="container">
-        <h2 class="gold">Our Core Verticals</h2>
-        <br>
-
-        <img src="assets/img/delta-linkage.jpg" class="banner">
-        <img src="assets/img/delta-consultancies.jpg" class="banner">
-        <img src="assets/img/delta-pixels.jpg" class="banner">
-    </div>
-</section>
-
-<!-- CAPABILITIES -->
+<!-- SERVICES -->
 <section class="section text-center">
     <div class="container">
-        <h2 class="gold">Capabilities</h2>
-        <br>
-
-        <div class="row">
-            <div class="col-md-4">
-                <h4>Market Linkage</h4>
-                <p>Connecting businesses with buyers, distributors and institutional clients for scalable execution.</p>
-            </div>
-
-            <div class="col-md-4">
-                <h4>Strategic Consulting</h4>
-                <p>Business strategy, risk management and operational structuring for long-term resilience.</p>
-            </div>
-
-            <div class="col-md-4">
-                <h4>PR & Brand Positioning</h4>
-                <p>Reputation management and communication strategies that build authority and visibility.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section section-dark text-center">
-    <div class="container">
-        <h2 class="gold">About</h2>
-        <p>
-            Constellation-Delta Group operates at the intersection of strategy, execution and communication.
-            We build scalable systems, enable partnerships and strengthen business positioning across sectors.
-        </p>
-    </div>
-</section>
-
-<!-- LEADERSHIP -->
-<section class="section text-center">
-    <div class="container">
-        <h2 class="gold">Leadership</h2>
-
+        <h2>Our Divisions</h2>
         <div class="row mt-5">
+
             <div class="col-md-4">
-                <img src="assets/img/team/1.jpg" class="rounded-circle" width="150">
-                <h5 class="mt-3">Founder</h5>
-                <p>Strategy & Vision</p>
+                <div class="card p-4">
+                    <h4>Delta Linkage</h4>
+                    <p>Market Access & Strategic Partnerships</p>
+                </div>
             </div>
 
             <div class="col-md-4">
-                <img src="assets/img/team/2.jpg" class="rounded-circle" width="150">
-                <h5 class="mt-3">Operations</h5>
-                <p>Execution & Growth</p>
+                <div class="card p-4">
+                    <h4>Delta Consultancies</h4>
+                    <p>Business Advisory & Strategic Consulting</p>
+                </div>
             </div>
 
             <div class="col-md-4">
-                <img src="assets/img/team/3.jpg" class="rounded-circle" width="150">
-                <h5 class="mt-3">Communications</h5>
-                <p>Brand & PR</p>
+                <div class="card p-4">
+                    <h4>Delta Pixels</h4>
+                    <p>PR Communication & Reputation Management</p>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section section-dark text-center">
+<section class="section">
     <div class="container">
-        <h2 class="gold">Contact</h2>
+        <h2 class="text-center">Contact Us</h2>
 
-        <p>Email: your@email.com</p>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
 
-        <p>
-            Maheshwari Marg, Sardarshahar, Rajasthan<br>
-            Jaipur Office – Malviya Nagar
-        </p>
+                <div class="contact-box">
+
+                    <form>
+                        <input class="form-control mb-3" type="email" placeholder="Your Email" required>
+
+                        <textarea class="form-control mb-3" rows="5" maxlength="500"
+                        placeholder="Write your message (max 500 characters)" required></textarea>
+
+                        <button class="btn btn-primary w-100">Send Message</button>
+                    </form>
+
+                    <hr>
+
+                    <p><strong>Constellation-Delta Group</strong></p>
+
+                    <p>
+                        Maheshwari Marg, Near Taal Maidan,<br>
+                        Opp. Satyanarayan Temple, Near Toll,<br>
+                        Sardarshahar, Rajasthan 331403
+                    </p>
+
+                    <p>
+                        A02, D-Block, Behind WTP,<br>
+                        Mahesh Marg, Malviya Nagar,<br>
+                        Jaipur, Rajasthan 302017
+                    </p>
+
+                    <p>Email: your@email.com</p>
+
+                </div>
+
+            </div>
+        </div>
     </div>
 </section>
 
