@@ -8,16 +8,30 @@
 <style>
 body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
     background: #0b1c2c;
     color: white;
 }
 
-/* NAVBAR */
+/* HERO WITH NAV INSIDE */
+.hero {
+    position: relative;
+}
+
+/* BACKGROUND IMAGE */
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* NAVBAR OVER IMAGE */
 .navbar {
-    background: #0b1c2c;
-    padding: 0 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,7 +40,6 @@ body {
 /* LOGO */
 .brand img {
     height: 110px;
-    display: block;
 }
 
 /* BUTTON */
@@ -37,27 +50,6 @@ body {
     color: gold;
     border-radius: 6px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-.nav-btn:hover {
-    background: gold;
-    color: black;
-}
-
-/* HERO */
-.hero {
-    margin: 0;
-    padding: 0;
-    line-height: 0;
-}
-
-.hero img {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
 }
 
 /* SECTION */
@@ -78,7 +70,6 @@ body {
 
 .slide img {
     width: 100%;
-    height: auto;
     border-radius: 10px;
 }
 
@@ -112,18 +103,19 @@ button {
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="brand">
-        <img src="assets/img/logo.png">
+<!-- HERO (IMAGE + NAV TOGETHER) -->
+<section class="hero">
+
+    <img src="assets/img/header-bg.jpg">
+
+    <div class="navbar">
+        <div class="brand">
+            <img src="assets/img/logo.png">
+        </div>
+
+        <button class="nav-btn">About Us</button>
     </div>
 
-    <button class="nav-btn">About Us</button>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-    <img src="assets/img/header-bg.jpg">
 </section>
 
 <!-- CORE VERTICALS -->
