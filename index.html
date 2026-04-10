@@ -13,22 +13,20 @@ body {
     color: white;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
     position: relative;
 }
 
-/* HERO IMAGE */
 .hero img {
     width: 100%;
-    height: auto;
     display: block;
 }
 
-/* NAVBAR OVER IMAGE */
+/* NAVBAR ON HERO */
 .navbar {
     position: absolute;
-    top: 10px; /* small breathing space */
+    top: 10px;
     left: 0;
     width: 100%;
     padding: 0 30px;
@@ -40,8 +38,7 @@ body {
 
 /* LOGO */
 .brand img {
-    height: 95px; /* slightly reduced so it doesn't cut */
-    width: auto;
+    height: 95px;
 }
 
 /* BUTTON */
@@ -66,13 +63,19 @@ body {
     margin: auto;
 }
 
-.slide {
-    display: none;
-}
-
-.slide img {
+#slider-image {
     width: 100%;
     border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slider-text {
+    margin-top: 20px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slider-text h3 {
+    color: gold;
 }
 
 /* CONTACT */
@@ -107,7 +110,6 @@ button {
 
 <!-- HERO -->
 <section class="hero">
-
     <img src="assets/img/header-bg.jpg">
 
     <div class="navbar">
@@ -117,7 +119,6 @@ button {
 
         <button class="nav-btn">About Us</button>
     </div>
-
 </section>
 
 <!-- CORE VERTICALS -->
@@ -125,16 +126,11 @@ button {
     <h2>Our Core Verticals</h2>
 
     <div class="slider">
-        <div class="slide">
-            <img src="assets/img/delta-linkage.jpg">
-        </div>
+        <img id="slider-image" src="assets/img/delta-linkage.jpg">
 
-        <div class="slide">
-            <img src="assets/img/delta-consultancies.jpg">
-        </div>
-
-        <div class="slide">
-            <img src="assets/img/delta-pixels.jpg">
+        <div id="slider-text" class="slider-text">
+            <h3>Delta Linkage</h3>
+            <p>We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities. Our focus is on building efficient supply chains and strategic networks that drive scalable growth.</p>
         </div>
     </div>
 </section>
@@ -159,24 +155,51 @@ button {
     </div>
 </section>
 
+<!-- SCRIPT -->
 <script>
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    let slides = document.getElementsByClassName("slide");
-
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+const slides = [
+    {
+        image: "assets/img/delta-linkage.jpg",
+        title: "Delta Linkage",
+        text: "We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities. Our focus is on building efficient supply chains and strategic networks that drive scalable growth."
+    },
+    {
+        image: "assets/img/delta-consultancies.jpg",
+        title: "Delta Consultancies",
+        text: "We provide expert consulting in business strategy, risk management, and operational efficiency. Our approach is data-driven and solution-oriented, helping organizations navigate complexity and achieve sustainable success."
+    },
+    {
+        image: "assets/img/delta-pixels.jpg",
+        title: "Delta Pixels",
+        text: "We craft impactful digital experiences through branding, content creation, and visual storytelling. Our goal is to build a strong and memorable digital presence that enhances engagement and credibility."
     }
+];
 
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }
+let index = 0;
 
-    slides[slideIndex - 1].style.display = "block";
+const img = document.getElementById("slider-image");
+const textBox = document.getElementById("slider-text");
 
-    setTimeout(showSlides, 3000);
+function updateSlide() {
+    img.style.opacity = 0;
+    textBox.style.opacity = 0;
+
+    setTimeout(() => {
+        index = (index + 1) % slides.length;
+
+        img.src = slides[index].image;
+
+        textBox.innerHTML = `
+            <h3>${slides[index].title}</h3>
+            <p>${slides[index].text}</p>
+        `;
+
+        img.style.opacity = 1;
+        textBox.style.opacity = 1;
+    }, 300);
 }
+
+setInterval(updateSlide, 3500);
 </script>
 
 </body>
