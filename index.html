@@ -36,7 +36,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
 }
 
 /* LOGO */
@@ -142,24 +141,22 @@ button {
 <section class="section">
     <h2>Contact Us</h2>
 
-    <!-- 🔥 WORKING FORM -->
+    <!-- 🔥 WORKING FORM WITH HTTPS REDIRECT -->
     <form action="https://formspree.io/f/mpqogeao" method="POST">
 
-        <input 
-            type="email" 
-            name="email" 
-            placeholder="Your Email" 
-            required
-        >
+        <input type="email" name="email" placeholder="Your Email" required>
 
         <textarea 
             name="message"
             maxlength="500" 
             placeholder="Write your message (max 500 characters)" 
-            required
-        ></textarea>
+            required>
+        </textarea>
 
         <input type="hidden" name="_subject" value="New message from cdelta.in">
+
+        <!-- 🔥 HTTPS THANK YOU PAGE -->
+        <input type="hidden" name="_next" value="https://cdelta.in/thankyou.html">
 
         <button type="submit">Send</button>
 
