@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Constellation-Delta Group</title>
 
-<!-- FAVICON -->
-<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/img/favicon.ico">
 
 <style>
 body {
@@ -30,7 +29,6 @@ body {
 .navbar {
     position: absolute;
     top: 10px;
-    left: 0;
     width: 100%;
     padding: 0 30px;
     display: flex;
@@ -68,31 +66,47 @@ body {
 #slider-image {
     width: 100%;
     border-radius: 10px;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s;
 }
 
 .slider-text {
     margin-top: 20px;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s;
 }
 
 .slider-text h3 {
     color: gold;
 }
 
-/* FORM */
-input, textarea {
-    width: 80%;
-    max-width: 500px;
+/* 🔥 CONTACT FORM FIXED */
+.contact-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.contact-form input {
+    width: 260px;
     padding: 10px;
     border-radius: 8px;
     border: none;
-    margin-top: 10px;
 }
 
-button {
-    margin-top: 15px;
-    padding: 10px 25px;
+.contact-form textarea {
+    width: 350px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    resize: none;
+}
+
+.contact-form button {
+    height: 45px;
+    padding: 0 20px;
     border: none;
     background: gold;
     color: black;
@@ -102,7 +116,7 @@ button {
 
 /* ADDRESS */
 .address {
-    margin-top: 20px;
+    margin-top: 30px;
     line-height: 1.6;
 }
 </style>
@@ -132,7 +146,7 @@ button {
 
         <div id="slider-text" class="slider-text">
             <h3>Delta Linkage</h3>
-            <p>We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities. Our focus is on building efficient supply chains and strategic networks that drive scalable growth.</p>
+            <p>We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities.</p>
         </div>
     </div>
 </section>
@@ -141,21 +155,13 @@ button {
 <section class="section">
     <h2>Contact Us</h2>
 
-    <!-- 🔥 WORKING FORM WITH HTTPS REDIRECT -->
-    <form action="https://formspree.io/f/mpqogeao" method="POST">
+    <form action="https://formspree.io/f/mpqogeao" method="POST" class="contact-form">
 
         <input type="email" name="email" placeholder="Your Email" required>
 
-        <textarea 
-            name="message"
-            maxlength="500" 
-            placeholder="Write your message (max 500 characters)" 
-            required>
-        </textarea>
+        <textarea name="message" maxlength="500" placeholder="Your Message" required></textarea>
 
         <input type="hidden" name="_subject" value="New message from cdelta.in">
-
-        <!-- 🔥 HTTPS THANK YOU PAGE -->
         <input type="hidden" name="_next" value="https://cdelta.in/thankyou.html">
 
         <button type="submit">Send</button>
@@ -181,41 +187,41 @@ const slides = [
     {
         image: "assets/img/delta-linkage.jpg",
         title: "Delta Linkage",
-        text: "We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities. Our focus is on building efficient supply chains and strategic networks that drive scalable growth."
+        text: "We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities."
     },
     {
         image: "assets/img/delta-consultancies.jpg",
         title: "Delta Consultancies",
-        text: "We provide expert consulting in business strategy, risk management, and operational efficiency. Our approach is data-driven and solution-oriented, helping organizations navigate complexity and achieve sustainable success."
+        text: "We provide expert consulting in business strategy, risk management, and operational efficiency."
     },
     {
         image: "assets/img/delta-pixels.jpg",
         title: "Delta Pixels",
-        text: "We craft impactful digital experiences through branding, content creation, and visual storytelling. Our goal is to build a strong and memorable digital presence that enhances engagement and credibility."
+        text: "We craft impactful digital experiences through branding and visual storytelling."
     }
 ];
 
 let index = 0;
 
-const img = document.getElementById("slider-image");
-const textBox = document.getElementById("slider-text");
-
 function updateSlide() {
+    const img = document.getElementById("slider-image");
+    const text = document.getElementById("slider-text");
+
     img.style.opacity = 0;
-    textBox.style.opacity = 0;
+    text.style.opacity = 0;
 
     setTimeout(() => {
         index = (index + 1) % slides.length;
 
         img.src = slides[index].image;
 
-        textBox.innerHTML = `
+        text.innerHTML = `
             <h3>${slides[index].title}</h3>
             <p>${slides[index].text}</p>
         `;
 
         img.style.opacity = 1;
-        textBox.style.opacity = 1;
+        text.style.opacity = 1;
     }, 300);
 }
 
