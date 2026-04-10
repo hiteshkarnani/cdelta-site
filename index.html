@@ -18,9 +18,8 @@ body {
     background-color: #0b1c2c !important;
 }
 
-/* BIG LOGO */
 .navbar-brand img {
-    height: 90px;   /* 🔥 Increased size */
+    height: 90px;
 }
 
 /* HERO */
@@ -33,54 +32,45 @@ body {
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 3rem;
-}
-
-/* SECTIONS */
+/* SECTION */
 .section {
     padding: 80px 0;
 }
 
-/* CARDS */
-.card {
-    background-color: #122b40;
-    border: none;
-    color: #fff;
-}
-
-/* IMAGE BLOCKS */
-.vertical-card {
+/* SLIDESHOW */
+.slider {
+    max-width: 900px;
+    margin: auto;
     position: relative;
-    overflow: hidden;
-    border-radius: 10px;
 }
 
-.vertical-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.vertical-card .overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.6);
-    padding: 15px;
+.slide {
+    display: none;
     text-align: center;
 }
 
-/* BUTTON */
-.btn-primary {
-    background-color: #d4af37;
-    border: none;
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain; /* 🔥 NO CUTTING */
+    background: #000;
+    border-radius: 10px;
 }
 
+.caption {
+    margin-top: 15px;
+}
+
+/* CONTACT */
 .contact-box {
     background-color: #122b40;
     padding: 30px;
     border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #d4af37;
+    border: none;
 }
 </style>
 </head>
@@ -104,47 +94,42 @@ body {
 </div>
 </section>
 
-<!-- CORE VERTICALS -->
+<!-- CORE VERTICALS SLIDER -->
 <section class="section text-center">
 <div class="container">
 <h2>Our Core Verticals</h2>
 
-<div class="row mt-5">
+<div class="slider">
 
-<!-- DELTA LINKAGE -->
-<div class="col-md-4">
-<div class="vertical-card">
+<!-- SLIDE 1 -->
+<div class="slide">
 <img src="assets/img/delta-linkage.jpg">
-<div class="overlay">
-<h5>Delta Linkage</h5>
+<div class="caption">
+<h4>Delta Linkage</h4>
 <p>Market Access & Strategic Partnerships</p>
 </div>
 </div>
-</div>
 
-<!-- DELTA CONSULTANCIES -->
-<div class="col-md-4">
-<div class="vertical-card">
+<!-- SLIDE 2 -->
+<div class="slide">
 <img src="assets/img/delta-consultancies.jpg">
-<div class="overlay">
-<h5>Delta Consultancies</h5>
+<div class="caption">
+<h4>Delta Consultancies</h4>
 <p>Business Advisory & Strategic Consulting</p>
 </div>
 </div>
-</div>
 
-<!-- DELTA PIXELS -->
-<div class="col-md-4">
-<div class="vertical-card">
+<!-- SLIDE 3 -->
+<div class="slide">
 <img src="assets/img/delta-pixels.jpg">
-<div class="overlay">
-<h5>Delta Pixels</h5>
+<div class="caption">
+<h4>Delta Pixels</h4>
 <p>PR Communication & Reputation Management</p>
 </div>
 </div>
-</div>
 
 </div>
+
 </div>
 </section>
 
@@ -169,21 +154,19 @@ placeholder="Write your message (max 500 characters)" required></textarea>
 
 <hr>
 
-<p><strong>Constellation-Delta Group</strong></p>
+<p style="text-align:center;"><strong>Constellation-Delta Group</strong></p>
 
-<p>
+<p style="text-align:center;">
 Maheshwari Marg, Near Taal Maidan,<br>
 Opp. Satyanarayan Temple, Near Toll,<br>
 Sardarshahar, Rajasthan 331403
 </p>
 
-<p>
+<p style="text-align:center;">
 A02, D-Block, Behind WTP,<br>
 Mahesh Marg, Malviya Nagar,<br>
 Jaipur, Rajasthan 302017
 </p>
-
-<p>Email: your@email.com</p>
 
 </div>
 
@@ -191,6 +174,27 @@ Jaipur, Rajasthan 302017
 </div>
 </div>
 </section>
+
+<!-- SLIDER SCRIPT -->
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+
+    slides[slideIndex - 1].style.display = "block";
+
+    setTimeout(showSlides, 3000); // change every 3 sec
+}
+</script>
 
 </body>
 </html>
