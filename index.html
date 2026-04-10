@@ -1,156 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Constellation-Delta Group</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Constellation-Delta Group</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
 
-    <style>
-        body {
-            background-color: #0b1c2c;
-            color: #fff;
-        }
+<style>
+body {
+    background-color: #0b1c2c;
+    color: #fff;
+}
 
-        .navbar {
-            background-color: #0b1c2c !important;
-        }
+/* NAVBAR */
+.navbar {
+    background-color: #0b1c2c !important;
+}
 
-        .hero {
-            height: 100vh;
-            background: url('assets/img/header-bg.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+/* BIG LOGO */
+.navbar-brand img {
+    height: 90px;   /* 🔥 Increased size */
+}
 
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
-        }
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('assets/img/header-bg.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
-        .section {
-            padding: 80px 0;
-        }
+.hero h1 {
+    font-size: 3rem;
+}
 
-        .card {
-            background-color: #122b40;
-            border: none;
-            color: #fff;
-        }
+/* SECTIONS */
+.section {
+    padding: 80px 0;
+}
 
-        .btn-primary {
-            background-color: #d4af37;
-            border: none;
-        }
+/* CARDS */
+.card {
+    background-color: #122b40;
+    border: none;
+    color: #fff;
+}
 
-        .btn-primary:hover {
-            background-color: #b8962e;
-        }
+/* IMAGE BLOCKS */
+.vertical-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
 
-        .contact-box {
-            background-color: #122b40;
-            padding: 30px;
-            border-radius: 10px;
-        }
-    </style>
+.vertical-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.vertical-card .overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    text-align: center;
+}
+
+/* BUTTON */
+.btn-primary {
+    background-color: #d4af37;
+    border: none;
+}
+
+.contact-box {
+    background-color: #122b40;
+    padding: 30px;
+    border-radius: 10px;
+}
+</style>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="assets/img/logo.png" style="height:40px;">
-        </a>
-    </div>
+<div class="container">
+<a class="navbar-brand" href="#">
+<img src="assets/img/logo.png">
+</a>
+</div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-    <div>
-        <h1>Constellation-Delta Group</h1>
-        <p>Strategic Insight. Resilient Solutions.</p>
-    </div>
+<div>
+<h1>Constellation-Delta Group</h1>
+<p>Strategic Insight. Resilient Solutions.</p>
+</div>
 </section>
 
-<!-- SERVICES -->
+<!-- CORE VERTICALS -->
 <section class="section text-center">
-    <div class="container">
-        <h2>Our Divisions</h2>
-        <div class="row mt-5">
+<div class="container">
+<h2>Our Core Verticals</h2>
 
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h4>Delta Linkage</h4>
-                    <p>Market Access & Strategic Partnerships</p>
-                </div>
-            </div>
+<div class="row mt-5">
 
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h4>Delta Consultancies</h4>
-                    <p>Business Advisory & Strategic Consulting</p>
-                </div>
-            </div>
+<!-- DELTA LINKAGE -->
+<div class="col-md-4">
+<div class="vertical-card">
+<img src="assets/img/delta-linkage.jpg">
+<div class="overlay">
+<h5>Delta Linkage</h5>
+<p>Market Access & Strategic Partnerships</p>
+</div>
+</div>
+</div>
 
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h4>Delta Pixels</h4>
-                    <p>PR Communication & Reputation Management</p>
-                </div>
-            </div>
+<!-- DELTA CONSULTANCIES -->
+<div class="col-md-4">
+<div class="vertical-card">
+<img src="assets/img/delta-consultancies.jpg">
+<div class="overlay">
+<h5>Delta Consultancies</h5>
+<p>Business Advisory & Strategic Consulting</p>
+</div>
+</div>
+</div>
 
-        </div>
-    </div>
+<!-- DELTA PIXELS -->
+<div class="col-md-4">
+<div class="vertical-card">
+<img src="assets/img/delta-pixels.jpg">
+<div class="overlay">
+<h5>Delta Pixels</h5>
+<p>PR Communication & Reputation Management</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
 <!-- CONTACT -->
 <section class="section">
-    <div class="container">
-        <h2 class="text-center">Contact Us</h2>
+<div class="container">
+<h2 class="text-center">Contact Us</h2>
 
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-6">
+<div class="row justify-content-center mt-5">
+<div class="col-md-6">
 
-                <div class="contact-box">
+<div class="contact-box">
 
-                    <form>
-                        <input class="form-control mb-3" type="email" placeholder="Your Email" required>
+<form>
+<input class="form-control mb-3" type="email" placeholder="Your Email" required>
 
-                        <textarea class="form-control mb-3" rows="5" maxlength="500"
-                        placeholder="Write your message (max 500 characters)" required></textarea>
+<textarea class="form-control mb-3" rows="5" maxlength="500"
+placeholder="Write your message (max 500 characters)" required></textarea>
 
-                        <button class="btn btn-primary w-100">Send Message</button>
-                    </form>
+<button class="btn btn-primary w-100">Send Message</button>
+</form>
 
-                    <hr>
+<hr>
 
-                    <p><strong>Constellation-Delta Group</strong></p>
+<p><strong>Constellation-Delta Group</strong></p>
 
-                    <p>
-                        Maheshwari Marg, Near Taal Maidan,<br>
-                        Opp. Satyanarayan Temple, Near Toll,<br>
-                        Sardarshahar, Rajasthan 331403
-                    </p>
+<p>
+Maheshwari Marg, Near Taal Maidan,<br>
+Opp. Satyanarayan Temple, Near Toll,<br>
+Sardarshahar, Rajasthan 331403
+</p>
 
-                    <p>
-                        A02, D-Block, Behind WTP,<br>
-                        Mahesh Marg, Malviya Nagar,<br>
-                        Jaipur, Rajasthan 302017
-                    </p>
+<p>
+A02, D-Block, Behind WTP,<br>
+Mahesh Marg, Malviya Nagar,<br>
+Jaipur, Rajasthan 302017
+</p>
 
-                    <p>Email: your@email.com</p>
+<p>Email: your@email.com</p>
 
-                </div>
+</div>
 
-            </div>
-        </div>
-    </div>
+</div>
+</div>
+</div>
 </section>
 
 </body>
