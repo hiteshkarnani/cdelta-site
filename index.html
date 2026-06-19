@@ -230,6 +230,34 @@ gap:15px;
 }
 
 }
+.hero-verticals{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-bottom:35px;
+}
+
+.vertical-btn{
+display:block;
+max-width:500px;
+padding:22px 30px;
+font-size:32px;
+font-family:Georgia,serif;
+font-weight:600;
+text-decoration:none;
+color:#d4af37;
+border:1px solid rgba(212,175,55,.25);
+border-radius:16px;
+background:rgba(255,255,255,.03);
+backdrop-filter:blur(10px);
+transition:.35s;
+}
+
+.vertical-btn:hover{
+transform:translateX(10px);
+border-color:#d4af37;
+box-shadow:0 0 35px rgba(212,175,55,.25);
+}
 
 </style>
   .service-card{
@@ -261,11 +289,21 @@ box-shadow:0 0 30px rgba(201,162,39,.08);
 
 <div class="hero-content">
 
-<h1>
-Delta Consultancies.<br>
-Delta Linkage.<br>
-Delta Pixels.
-</h1>
+<div class="hero-verticals">
+
+<a href="#services" class="vertical-btn">
+Delta Consultancies →
+</a>
+
+<a href="#services" class="vertical-btn">
+Delta Linkage →
+</a>
+
+<a href="#services" class="vertical-btn">
+Delta Pixels →
+</a>
+
+</div>
 
 <p>
 
