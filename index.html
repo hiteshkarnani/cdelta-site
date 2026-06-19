@@ -211,7 +211,6 @@ padding:35px;
 border-radius:20px;
 }
 
-input,
 textarea{
 width:100%;
 padding:18px;
@@ -317,7 +316,7 @@ onclick="toggleCard('consultancies')">
 
 <div class="vertical-title">
 DELTA CONSULTANCIES
-<span class="vertical-arrow" data-state="closed">+</span>
+<span class="vertical-arrow">+</span>
 </div>
 
 <div id="consultancies"
@@ -350,7 +349,7 @@ onclick="toggleCard('linkage')">
 
 <div class="vertical-title">
 DELTA LINKAGE
-<span class="vertical-arrow" data-state="closed">+</span>
+<span class="vertical-arrow">+</span>
 </div>
 
 <div id="linkage"
@@ -383,7 +382,7 @@ onclick="toggleCard('pixels')">
 
 <div class="vertical-title">
 DELTA PIXELS
-<span class="vertical-arrow" data-state="closed">+</span>
+<span class="vertical-arrow">+</span>
 </div>
 
 <div id="pixels"
@@ -475,38 +474,20 @@ font-size:14px;
 
 function toggleCard(id){
 
-const current =
-document.getElementById(id);
-
-const allCards =
+const cards =
 document.querySelectorAll('.vertical-content');
 
-const allArrows =
-document.querySelectorAll('.vertical-arrow');
+cards.forEach(card=>{
 
-allCards.forEach(card=>{
-if(card !== current){
+if(card.id !== id){
 card.classList.remove('show');
 }
+
 });
 
-allArrows.forEach(arrow=>{
-arrow.innerHTML='+';
-});
-
-if(current.classList.contains('show')){
-
-current.classList.remove('show');
-
-}else{
-
-current.classList.add('show');
-
-const card =
-current.closest('.vertical-card');
-
-card.querySelector('.vertical-arrow').innerHTML='−';
-
-}
+document
+.getElementById(id)
+.classList
+.toggle('show');
 
 }
