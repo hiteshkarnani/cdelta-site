@@ -317,7 +317,7 @@ onclick="toggleCard('consultancies')">
 
 <div class="vertical-title">
 DELTA CONSULTANCIES
-<span class="vertical-arrow">+</span>
+<span class="vertical-arrow" data-state="closed">+</span>
 </div>
 
 <div id="consultancies"
@@ -350,7 +350,7 @@ onclick="toggleCard('linkage')">
 
 <div class="vertical-title">
 DELTA LINKAGE
-<span class="vertical-arrow">+</span>
+<span class="vertical-arrow" data-state="closed">+</span>
 </div>
 
 <div id="linkage"
@@ -383,7 +383,7 @@ onclick="toggleCard('pixels')">
 
 <div class="vertical-title">
 DELTA PIXELS
-<span class="vertical-arrow">+</span>
+<span class="vertical-arrow" data-state="closed">+</span>
 </div>
 
 <div id="pixels"
@@ -475,24 +475,38 @@ font-size:14px;
 
 function toggleCard(id){
 
-const cards =
+const current =
+document.getElementById(id);
+
+const allCards =
 document.querySelectorAll('.vertical-content');
 
-cards.forEach(card=>{
+const allArrows =
+document.querySelectorAll('.vertical-arrow');
 
-if(card.id !== id){
+allCards.forEach(card=>{
+if(card !== current){
 card.classList.remove('show');
 }
-
 });
 
-document
-.getElementById(id)
-.classList
-.toggle('show');
+allArrows.forEach(arrow=>{
+arrow.innerHTML='+';
+});
+
+if(current.classList.contains('show')){
+
+current.classList.remove('show');
+
+}else{
+
+current.classList.add('show');
+
+const card =
+current.closest('.vertical-card');
+
+card.querySelector('.vertical-arrow').innerHTML='−';
 
 }
-  </script>
 
-</body>
-</html>
+}
