@@ -327,3 +327,156 @@ and achieve sustainable success.
 </div>
 
 </div>
+  <div class="service-card"
+onclick="toggleCard('linkage')">
+
+<h3>Delta Linkage</h3>
+
+<p>
+Market Access & Partnership Development
+</p>
+
+<div id="linkage" class="service-detail">
+
+We enable seamless market linkage by
+connecting businesses with strategic partners,
+distributors, investors, and growth opportunities
+that accelerate expansion and strengthen
+market presence.
+
+</div>
+
+</div>
+
+<div class="service-card"
+onclick="toggleCard('pixels')">
+
+<h3>Delta Pixels</h3>
+
+<p>
+PR Communications & Reputation Management
+</p>
+
+<div id="pixels" class="service-detail">
+
+We help organizations build credibility,
+strengthen reputation, and communicate
+effectively through public relations,
+digital presence management,
+and strategic brand positioning.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="contact">
+
+<h2 class="section-title">
+Contact Us
+</h2>
+
+<div class="about-card">
+
+<form action="https://formspree.io/f/mpqogeao" method="POST">
+
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required
+style="width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:none;">
+
+<textarea
+name="message"
+placeholder="Your Message"
+maxlength="500"
+required
+style="width:100%;padding:15px;height:120px;border-radius:10px;border:none;"></textarea>
+
+<button
+type="submit"
+class="btn-primary"
+style="margin-top:20px;border:none;cursor:pointer;">
+
+Send Message
+
+</button>
+
+</form>
+
+<br><br>
+
+<h3 class="gold">
+Sardarshahar Office
+</h3>
+
+<p>
+
+A9, Maheshwari Marg,
+Near Taal Maidan,
+Opp Satyanarayan Temple,
+Sardarshahar, Rajasthan 331403
+
+</p>
+
+<br>
+
+<h3 class="gold">
+Jaipur Office
+</h3>
+
+<p>
+
+A02, D-Block,
+Behind WTP,
+Malviya Nagar,
+Jaipur, Rajasthan 302017
+
+</p>
+
+</div>
+
+</section>
+
+<footer
+style="
+padding:40px;
+text-align:center;
+color:#888;
+border-top:1px solid rgba(201,162,39,.15);
+">
+
+© 2026 Constellation-Delta Group
+
+</footer>
+
+<script>
+
+function toggleCard(id){
+
+const details =
+document.querySelectorAll('.service-detail');
+
+details.forEach(item=>{
+
+if(item.id !== id){
+item.classList.remove('show');
+}
+
+});
+
+document
+.getElementById(id)
+.classList
+.toggle('show');
+
+}
+
+</script>
+
+</body>
+</html>
