@@ -580,3 +580,209 @@ and strategic brand positioning.
 </section>
 
 </section>
+<section id="contact">
+
+<div class="contact-wrapper">
+
+<h2 class="contact-title">
+
+CONTACT US
+
+</h2>
+
+<form
+class="contact-form"
+action="https://formspree.io/f/mpqogeao"
+method="POST">
+
+<input
+type="text"
+name="name"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email Address"
+required>
+
+<textarea
+name="message"
+placeholder="Tell us about your requirements"
+required>
+</textarea>
+
+<button
+type="submit"
+class="contact-btn">
+
+Send Message
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<style>
+
+/* CONTACT */
+
+#contact{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:100px 10%;
+
+background:
+linear-gradient(
+180deg,
+#071018,
+#0b1520
+);
+
+}
+
+.contact-wrapper{
+
+width:100%;
+max-width:800px;
+
+}
+
+.contact-title{
+
+text-align:center;
+
+font-family:Georgia,serif;
+
+font-size:60px;
+
+color:var(--gold);
+
+margin-bottom:40px;
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+width:100%;
+
+padding:20px;
+
+margin-bottom:20px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(200,164,93,.25);
+
+border-radius:12px;
+
+color:white;
+
+font-size:18px;
+
+}
+
+.contact-form textarea{
+
+height:220px;
+
+resize:none;
+
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+
+color:#b5b5b5;
+
+font-family:Georgia,serif;
+font-style:italic;
+
+}
+
+.contact-btn{
+
+background:var(--gold);
+
+color:#071018;
+
+border:none;
+
+padding:18px 40px;
+
+font-size:18px;
+
+font-weight:700;
+
+border-radius:12px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.contact-btn:hover{
+
+transform:translateY(-3px);
+
+background:var(--gold-light);
+
+}
+
+</style>
+
+<script>
+
+/* SCROLL ANIMATION */
+
+const sections =
+document.querySelectorAll('.business-content');
+
+const observer =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity='1';
+
+entry.target.style.transform='translateY(0)';
+
+}
+
+});
+
+},{
+threshold:.25
+});
+
+sections.forEach(section=>{
+
+section.style.opacity='0';
+
+section.style.transform='translateY(60px)';
+
+section.style.transition='all 1s ease';
+
+observer.observe(section);
+
+});
+
+</script>
+
+</body>
+</html>
