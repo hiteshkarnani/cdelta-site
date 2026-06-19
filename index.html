@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,282 +11,276 @@
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
 <style>
-  *{
--webkit-tap-highlight-color: transparent;
-}
-
-.vertical-card,
-a,
-button{
--webkit-tap-highlight-color: transparent;
-outline:none;
-}
-
-.vertical-card{
-user-select:none;
-}
 
 :root{
---bg:#0b120d;
---bg2:#162019;
---gold:#d4af37;
---gold-light:#f0cf6b;
---text:#d6d6d6;
+
+--bg:#071018;
+--bg2:#0f1b26;
+
+--gold:#c8a45d;
+--gold-light:#e2c37a;
+
 --white:#ffffff;
+--text:#d7d7d7;
+
 }
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-}
-
-html{
 scroll-behavior:smooth;
+-webkit-tap-highlight-color:transparent;
 }
 
 body{
+
+font-family:Arial,sans-serif;
+
 background:
 linear-gradient(
 180deg,
-#0b120d,
-#142018,
-#0b120d
+#071018,
+#0f1b26,
+#071018
 );
-color:var(--white);
-font-family:Arial,sans-serif;
+
+color:white;
+
 overflow-x:hidden;
-}
 
-.container{
-width:min(1100px,90%);
-margin:auto;
 }
-
-/* NAVBAR */
 
 nav{
-position:sticky;
+
+position:fixed;
+
 top:0;
-z-index:1000;
-background:rgba(10,15,12,.85);
+left:0;
+
+width:100%;
+
+z-index:999;
+
+background:rgba(7,16,24,.85);
+
 backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(212,175,55,.12);
-}
 
-.nav-inner{
+padding:20px 8%;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
-padding:18px 0;
+
+border-bottom:1px solid rgba(200,164,93,.15);
+
 }
 
-.nav-logo{
+.logo{
+
 display:flex;
+
 align-items:center;
-gap:12px;
+
+gap:15px;
+
 }
 
-.nav-logo img{
-height:54px;
+.logo img{
+
+height:60px;
+
+}
+
+.logo-text{
+
+color:var(--gold);
+
+font-family:Georgia,serif;
+
+font-size:22px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
 }
 
 .nav-links{
+
 display:flex;
-gap:30px;
+
+gap:35px;
+
 }
 
 .nav-links a{
+
 color:var(--gold);
+
 text-decoration:none;
+
 font-weight:600;
+
+transition:.3s;
+
 }
 
-/* HERO */
+.nav-links a:hover{
+
+color:var(--gold-light);
+
+}
 
 .hero{
-padding:70px 0 40px;
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 text-align:center;
+
+padding:120px 10% 80px;
+
+}
+
+.hero-content{
+
+max-width:900px;
+
 }
 
 .hero-logo{
-width:140px;
+
+width:170px;
+
 margin:auto;
+
 display:block;
-animation:starGlow 3s ease-in-out infinite;
+
+animation:starGlow 4s ease-in-out infinite;
+
 }
 
-.company-name{
+.hero-title{
+
 font-family:Georgia,serif;
-font-size:58px;
+
+font-size:70px;
+
 font-weight:700;
-color:var(--gold);
+
 letter-spacing:2px;
+
 margin-top:25px;
+
+color:var(--gold);
+
 }
 
-.company-group{
+.hero-title span{
+
 display:block;
-font-size:26px;
-letter-spacing:8px;
-margin-top:8px;
+
+font-size:28px;
+
+letter-spacing:10px;
+
+margin-top:10px;
+
 }
 
-.company-about{
-color:var(--text);
-font-size:26px;
-max-width:800px;
-line-height:1.9;
-font-family:Georgia, "Times New Roman", serif;
+.hero-desc{
+
+margin-top:35px;
+
+font-family:Georgia,serif;
+
 font-style:italic;
-font-weight:400;
+
+font-size:24px;
+
+line-height:1.9;
+
+color:var(--text);
+
 }
 
 .about-link{
+
 display:inline-block;
+
+margin-top:30px;
+
 color:var(--gold);
+
 text-decoration:none;
-font-size:18px;
-font-weight:600;
-margin-top:10px;
+
+font-size:20px;
+
 }
 
-/* CARDS */
+.scroll-indicator{
 
-.verticals{
-padding:40px 0;
-}
+margin-top:50px;
 
-.vertical-card{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(212,175,55,.15);
-border-radius:18px;
-padding:28px;
-margin-bottom:22px;
-cursor:pointer;
-transition:.3s;
-backdrop-filter:blur(12px);
-}
+font-size:40px;
 
-.vertical-card:hover{
-border-color:var(--gold);
-box-shadow:0 0 30px rgba(212,175,55,.15);
-}
-
-.vertical-title{
-font-size:32px;
-font-family:Georgia,serif;
 color:var(--gold);
+
+animation:bounce 2s infinite;
+
 }
 
-.vertical-arrow{
-float:right;
+@keyframes bounce{
+
+0%,100%{
+transform:translateY(0);
 }
 
-.vertical-content{
-display:none;
-padding-top:25px;
-color:var(--text);
-line-height:1.8;
-font-size:18px;
-font-family:Georgia, "Times New Roman", serif;
-font-style:italic;
+50%{
+transform:translateY(12px);
 }
 
-.show{
-display:block;
 }
 
-/* CONTACT */
+@keyframes starGlow{
 
-.contact{
-padding:60px 0;
-}
-
-.section-title{
-text-align:center;
-font-size:48px;
-font-family:Georgia,serif;
-color:var(--gold);
-margin-bottom:35px;
-}
-
-.contact-box{
-max-width:800px;
-margin:auto;
-background:rgba(255,255,255,.03);
-border:1px solid rgba(212,175,55,.15);
-padding:35px;
-border-radius:20px;
-}
-
-input,
-textarea{
-width:100%;
-padding:18px;
-margin-bottom:18px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(212,175,55,.15);
-border-radius:10px;
-color:white;
-font-size:17px;
-}
-
-textarea{
-height:180px;
-}
-
-.submit-btn{
-background:var(--gold);
-color:black;
-border:none;
-padding:16px 35px;
-border-radius:10px;
-font-weight:700;
-cursor:pointer;
-}
-
- @keyframes starGlow{
 0%{
 transform:scale(1);
-filter:drop-shadow(0 0 5px rgba(212,175,55,.3));
 }
+
 50%{
-transform:scale(1.04);
+transform:scale(1.05);
 filter:
-drop-shadow(0 0 12px rgba(212,175,55,.9))
-drop-shadow(0 0 25px rgba(212,175,55,.5));
+drop-shadow(0 0 12px rgba(200,164,93,.8));
 }
+
 100%{
 transform:scale(1);
-filter:drop-shadow(0 0 5px rgba(212,175,55,.3));
 }
+
 }
- 
-/* MOBILE */
 
 @media(max-width:768px){
 
-.company-name{
-font-size:36px;
+.hero-title{
+font-size:42px;
 }
 
-.company-group{
+.hero-title span{
 font-size:18px;
 letter-spacing:4px;
 }
 
-.company-about{
-font-size:22px;
-line-height:1.8;
-}
-
-.vertical-title{
-font-size:24px;
-}
-
-.section-title{
-font-size:34px;
+.hero-desc{
+font-size:19px;
 }
 
 .nav-links{
@@ -293,219 +288,82 @@ gap:15px;
 font-size:14px;
 }
 
+.logo-text{
+display:none;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <nav>
-<div class="container nav-inner">
 
-<div class="nav-logo">
+<div class="logo">
+
 <img src="assets/img/logo.png" alt="Logo">
+
+<div class="logo-text">
+
+CONSTELLATION-DELTA
+
+</div>
+
 </div>
 
 <div class="nav-links">
+
+<a href="#home">Home</a>
+
 <a href="about.html">About Us</a>
+
+<a href="#verticals">Business Verticals</a>
+
 <a href="#contact">Contact Us</a>
-</div>
 
 </div>
+
 </nav>
 
-<section class="hero">
+<section id="home" class="hero">
 
-<div class="container">
+<div class="hero-content">
 
-<img src="assets/img/logo.png" class="hero-logo">
+<img
+src="assets/img/logo.png"
+class="hero-logo">
 
-<h1 class="company-name">
+<h1 class="hero-title">
+
 CONSTELLATION-DELTA
-<span class="company-group">GROUP</span>
+
+<span>GROUP</span>
+
 </h1>
 
-<p class="company-about">
-Constellation-Delta Group is a multidisciplinary
-business platform bringing together strategic
-consulting, market linkage, and reputation
-management solutions.
+<p class="hero-desc">
+
+Strategic Consulting • Market Linkage • Reputation Management
+
 </p>
 
-</div>
+<a
+href="about.html"
+class="about-link">
 
-</section>
+About Constellation-Delta →
 
-<section class="verticals">
-<div class="container">
-<div class="vertical-card"
-onclick="toggleCard('consultancies')">
+</a>
 
-<div class="vertical-title">
-DELTA CONSULTANCIES
-<span class="vertical-arrow">+</span>
-</div>
+<div class="scroll-indicator">
 
-<div id="consultancies"
-class="vertical-content">
-
-<h3 style="color:#d4af37;margin-bottom:15px;">
-Strategic Advisory & Business Solutions
-</h3>
-
-<p>
-We provide strategic consulting,
-risk analysis,
-business planning,
-and growth-oriented solutions that help
-organizations make informed decisions
-and achieve sustainable success.
-</p>
-
-</div>
-
-</div>
-
-<div class="vertical-card"
-onclick="toggleCard('linkage')">
-
-<div class="vertical-title">
-DELTA LINKAGE
-<span class="vertical-arrow">+</span>
-</div>
-
-<div id="linkage"
-class="vertical-content">
-
-<h3 style="color:#d4af37;margin-bottom:15px;">
-Market Access & Partnership Development
-</h3>
-
-<p>
-We enable seamless market linkage by
-connecting businesses with strategic partners,
-distributors,
-investors,
-and growth opportunities that accelerate
-expansion and strengthen market presence.
-</p>
-
-</div>
-
-</div>
-
-<div class="vertical-card"
-onclick="toggleCard('pixels')">
-
-<div class="vertical-title">
-DELTA PIXELS
-<span class="vertical-arrow">+</span>
-</div>
-
-<div id="pixels"
-class="vertical-content">
-
-<h3 style="color:#d4af37;margin-bottom:15px;">
-PR Communications & Reputation Management
-</h3>
-
-<p>
-We help organizations build credibility,
-strengthen reputation,
-and communicate effectively through public
-relations,
-digital presence management,
-and strategic brand positioning.
-</p>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section id="contact" class="contact">
-
-<div class="container">
-
-<h2 class="section-title">
-CONTACT US
-</h2>
-
-<div class="contact-box">
-
-<form
-action="https://formspree.io/f/mpqogeao"
-method="POST">
-
-<input
-type="text"
-name="name"
-placeholder="Full Name"
-required>
-
-<input
-type="email"
-name="email"
-placeholder="Email Address"
-required>
-
-<textarea
-name="message"
-placeholder="Tell us about your requirements"
-required>
-</textarea>
-
-<button
-type="submit"
-class="submit-btn">
-Send Message
-</button>
-
-</form>
+⌄
 
 </div>
 
 </div>
 
 </section>
-<footer style="
-text-align:center;
-padding:40px 20px;
-border-top:1px solid rgba(212,175,55,.12);
-color:#9e9e9e;
-font-size:14px;
-">
-
-© 2026 Constellation-Delta Group
-
-</footer>
-
-<script>
-
-function toggleCard(id){
-
-const cards =
-document.querySelectorAll('.vertical-content');
-
-cards.forEach(card=>{
-
-if(card.id !== id){
-card.classList.remove('show');
-}
-
-});
-
-document
-.getElementById(id)
-.classList
-.toggle('show');
-
-}
-
-</script>
-
-</body>
-</html>  
