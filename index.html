@@ -3,305 +3,327 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Constellation-Delta Group</title>
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="shortcut icon" href="assets/favicon.png">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+:root{
+--bg:#0d1310;
+--bg2:#162019;
+--gold:#c9a227;
+--gold-light:#d9bf63;
+--white:#f4f4f4;
+--text:#c8c8c8;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #0b2a3c;
-    color: white;
-    overflow-x: hidden;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
-/* HERO */
+body{
+font-family:Arial, sans-serif;
+background:linear-gradient(
+180deg,
+#0d1310,
+#131d17,
+#0d1310
+);
+color:var(--white);
+overflow-x:hidden;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(10,15,12,.7);
+backdrop-filter:blur(10px);
+}
+
+.logo img{
+height:70px;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:15px;
+}
+
 .hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:60px;
-    background:
-    radial-gradient(circle at 80% 30%, rgba(212,175,55,.25), transparent 20%),
-    radial-gradient(circle at 70% 50%, rgba(212,175,55,.15), transparent 15%),
-    linear-gradient(135deg,#05080d,#09131f,#05080d);
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:120px 8%;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+right:-200px;
+top:-100px;
+background:radial-gradient(
+circle,
+rgba(201,162,39,.15),
+transparent 70%
+);
 }
 
 .hero-content{
-    max-width:700px;
-    text-align:left;
-}
-
-.hero-logo{
-    width:90px;
-    margin-bottom:25px;
+max-width:900px;
+text-align:center;
+z-index:2;
 }
 
 .hero h1{
-    font-size:64px;
-    line-height:1.05;
-    color:white;
-    margin-bottom:25px;
+font-size:72px;
+line-height:1.1;
+margin-bottom:25px;
+}
+
+.gold{
+color:var(--gold);
 }
 
 .hero p{
-    font-size:20px;
-    line-height:1.8;
-    color:#cfcfcf;
-    max-width:600px;
+font-size:20px;
+line-height:1.8;
+color:var(--text);
+max-width:850px;
+margin:auto;
 }
 
 .hero-buttons{
-    margin-top:35px;
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
-.hero-btn-primary{
-    background:#d4af37;
-    color:#000;
-    padding:15px 28px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
+.btn-primary{
+background:var(--gold);
+color:black;
+padding:15px 30px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
 }
 
-.hero-btn-secondary{
-    border:1px solid #d4af37;
-    color:#d4af37;
-    padding:15px 28px;
-    border-radius:8px;
-    text-decoration:none;
+.btn-secondary{
+border:1px solid var(--gold);
+color:var(--gold);
+padding:15px 30px;
+border-radius:10px;
+text-decoration:none;
+}
+
+.section{
+padding:100px 8%;
+}
+
+.section-title{
+font-size:48px;
+margin-bottom:30px;
+text-align:center;
+}
+
+.about-card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(201,162,39,.2);
+padding:40px;
+border-radius:20px;
+max-width:1000px;
+margin:auto;
+line-height:1.9;
+color:var(--text);
+}
+
+.services-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.service-card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(201,162,39,.15);
+padding:35px;
+border-radius:20px;
+cursor:pointer;
+transition:.3s;
+}
+
+.service-card:hover{
+transform:translateY(-8px);
+border-color:var(--gold);
+}
+
+.service-card h3{
+margin-bottom:10px;
+color:var(--gold);
+}
+
+.service-detail{
+display:none;
+margin-top:15px;
+line-height:1.8;
+color:var(--text);
+}
+
+.show{
+display:block;
 }
 
 @media(max-width:768px){
-
-.hero{
-padding:30px;
-}
 
 .hero h1{
 font-size:42px;
 }
 
-.hero p{
-font-size:18px;
+.section-title{
+font-size:34px;
 }
 
-.hero-logo{
-width:70px;
+.logo img{
+height:55px;
+}
+
+.nav-links{
+gap:15px;
 }
 
 }
-    
-/* NAVBAR */
-.navbar {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
-    padding: 0 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-/* LOGO */
-.brand img {
-    height: 110px;
-}
-
-/* BUTTON */
-.nav-btn {
-    padding: 10px 20px;
-    border: 2px solid gold;
-    color: gold;
-    background: transparent;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* SECTION */
-section:not(.hero) {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-h2 {
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-size: 42px;
-}
-
-/* SLIDESHOW */
-.slideshow {
-    max-width: 600px;
-    margin: auto;
-}
-
-.slideshow img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.description {
-    margin-top: 30px;
-    font-size: 24px;
-    line-height: 1.6;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* CONTACT */
-.contact-box {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-input, textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-}
-
-input {
-    width: 280px;
-}
-
-textarea {
-    width: 380px;
-    height: 80px;
-}
-
-.send-btn {
-    background: gold;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* ADDRESS */
-.address {
-    margin-top: 30px;
-    line-height: 1.6;
-}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<nav>
+<div class="logo">
+<img src="assets/img/logo.png" alt="Constellation Delta">
+</div>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
 <section class="hero">
-    
-    <div class="hero-content">
 
-    <img src="assets/img/logo.png" alt="Logo" class="hero-logo">
+<div class="hero-content">
 
-    <h1>
-        Strategic Consulting<br>
-        Market Linkage<br>
-        Digital Reputation
-    </h1>
+<h1>
 
-    <p>
-        We empower organizations to identify opportunities,
-        build strong partnerships, and create a lasting
-        digital presence that drives sustainable growth.
-    </p>
+<span class="gold">Delta Consultancies.</span><br>
 
-    <div class="hero-buttons">
-        <a href="#about" class="hero-btn-primary">Explore Our Verticals</a>
-        <a href="#contact" class="hero-btn-secondary">Contact Us</a>
-    </div>
+<span class="gold">Delta Linkage.</span><br>
 
-    </div>
-<section id="about">
-    <h2>About Constellation-Delta Group</h2>
+<span class="gold">Delta Pixels.</span>
 
-    <p>
-        Constellation-Delta Group is a multidisciplinary organization focused on strategic consulting, market linkage, and digital reputation management.
-    </p>
+</h1>
 
-    <p>
-        Through our business verticals, we help organizations identify growth opportunities, build strategic partnerships, strengthen market presence, and achieve sustainable success.
-    </p>
+<p>
+
+Strategic advisory, market access, and
+reputation-led growth solutions designed
+to help organizations build partnerships,
+unlock opportunities, and strengthen
+market presence.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#services" class="btn-primary">
+Explore Verticals
+</a>
+
+<a href="#contact" class="btn-secondary">
+Contact Us
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- CORE VERTICALS -->
-<section>
-    <h2>Integrated Business Solutions</h2>
+<section class="section" id="about">
 
-    <div class="slideshow">
-        <img id="slideImage" src="assets/img/delta-linkage.jpg" alt="Vertical">
+<h2 class="section-title">
+About Constellation-Delta Group
+</h2>
 
-        <div class="description" id="slideText">
-            We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities.
-        </div>
-    </div>
+<div class="about-card">
+
+Constellation-Delta Group is a multidisciplinary
+business platform bringing together strategic
+consulting, market linkage, and reputation
+management solutions.
+
+Through Delta Consultancies,
+Delta Linkage, and Delta Pixels,
+we help organizations identify opportunities,
+build meaningful partnerships,
+strengthen market presence,
+and achieve sustainable growth.
+
+</div>
+
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <h2>Contact Us</h2>
+<section class="section" id="services">
 
-    <form action="https://formspree.io/f/mpqogeao" method="POST">
-        <div class="contact-box">
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" maxlength="500" placeholder="Your Message" required></textarea>
-            <button class="send-btn">Send</button>
-        </div>
-    </form>
+<h2 class="section-title">
+Business Verticals
+</h2>
 
-    <div class="address">
-        <h3>Sardarshahar Office</h3>
-       A9, Maheshwari Marg, Near Taal Maidan,<br>
-        Opp Satyanarayan Temple,<br>
-        Near Tall, Sardarshahar, RJ 331403
+<div class="services-grid">
 
-        <br><br>
+<div class="service-card"
+onclick="toggleCard('consult')">
 
-        <h3>Jaipur Office</h3>
-        A02, D-Block, Behind WTP,<br>
-        Mahesh Marg, Malviya Nagar,<br>
-        Jaipur, Rajasthan 302017
-    </div>
-</section>
+<h3>Delta Consultancies</h3>
 
-<script>
-const images = [
-    "assets/img/delta-linkage.jpg",
-    "assets/img/delta-consultancies.jpg",
-    "assets/img/delta-pixels.jpg"
-];
+<p>
+Strategic Advisory & Business Solutions
+</p>
 
-const texts = [
-    "We enable seamless market linkage by connecting businesses with the right partners, distributors, and opportunities.",
-    "We provide strategic consulting, risk analysis, and business solutions that drive sustainable growth.",
-    "We deliver creative digital solutions including branding, design, and modern digital presence."
-];
+<div id="consult" class="service-detail">
 
-let index = 0;
+We provide strategic consulting,
+risk analysis, business planning,
+and growth-oriented solutions that help
+organizations make informed decisions
+and achieve sustainable success.
 
-setInterval(() => {
-    index = (index + 1) % images.length;
-    document.getElementById("slideImage").src = images[index];
-    document.getElementById("slideText").innerText = texts[index];
-}, 5000);
-</script>
+</div>
 
-</body>
-</html>
+</div>
