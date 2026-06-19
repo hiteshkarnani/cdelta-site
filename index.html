@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,667 +10,433 @@
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
 <style>
+  *{
+-webkit-tap-highlight-color: transparent;
+}
+
+.vertical-card,
+a,
+button{
+-webkit-tap-highlight-color: transparent;
+outline:none;
+}
+
+.vertical-card{
+user-select:none;
+}
 
 :root{
-
---bg:#071018;
---bg2:#0f1b26;
-
---gold:#c8a45d;
---gold-light:#e2c37a;
-
+--bg:#0b120d;
+--bg2:#162019;
+--gold:#d4af37;
+--gold-light:#f0cf6b;
+--text:#d6d6d6;
 --white:#ffffff;
---text:#d7d7d7;
-
 }
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+}
+
+html{
 scroll-behavior:smooth;
--webkit-tap-highlight-color:transparent;
 }
 
 body{
-
-font-family:Arial,sans-serif;
-
 background:
 linear-gradient(
 180deg,
-#071018,
-#0f1b26,
-#071018
+#0b120d,
+#142018,
+#0b120d
 );
-
-color:white;
-
+color:var(--white);
+font-family:Arial,sans-serif;
 overflow-x:hidden;
-
 }
+
+.container{
+width:min(1100px,90%);
+margin:auto;
+}
+
+/* NAVBAR */
 
 nav{
-
-position:fixed;
-
+position:sticky;
 top:0;
-left:0;
-
-width:100%;
-
-z-index:999;
-
-background:rgba(7,16,24,.85);
-
+z-index:1000;
+background:rgba(10,15,12,.85);
 backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(212,175,55,.12);
+}
 
-padding:20px 8%;
-
+.nav-inner{
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
-border-bottom:1px solid rgba(200,164,93,.15);
-
+padding:18px 0;
 }
 
-.logo{
-
+.nav-logo{
 display:flex;
-
 align-items:center;
-
-gap:15px;
-
+gap:12px;
 }
 
-.logo img{
-
-height:60px;
-
-}
-
-.logo-text{
-
-color:var(--gold);
-
-font-family:Georgia,serif;
-
-font-size:22px;
-
-font-weight:700;
-
-letter-spacing:2px;
-
+.nav-logo img{
+height:54px;
 }
 
 .nav-links{
-
 display:flex;
-
-gap:35px;
-
+gap:30px;
 }
 
 .nav-links a{
-
 color:var(--gold);
-
 text-decoration:none;
-
 font-weight:600;
-
-transition:.3s;
-
 }
 
-.nav-links a:hover{
-
-color:var(--gold-light);
-
-}
+/* HERO */
 
 .hero{
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
+padding:70px 0 40px;
 text-align:center;
-
-padding:120px 10% 80px;
-
-}
-
-.hero-content{
-
-max-width:900px;
-
 }
 
 .hero-logo{
-
-width:170px;
-
+width:140px;
 margin:auto;
-
 display:block;
-
-animation:starGlow 4s ease-in-out infinite;
-
+animation:starGlow 3s ease-in-out infinite;
 }
 
-.hero-title{
-
+.company-name{
 font-family:Georgia,serif;
-
-font-size:70px;
-
+font-size:58px;
 font-weight:700;
-
-letter-spacing:2px;
-
-margin-top:25px;
-
 color:var(--gold);
-
+letter-spacing:2px;
+margin-top:25px;
 }
 
-.hero-title span{
-
+.company-group{
 display:block;
-
-font-size:28px;
-
-letter-spacing:10px;
-
-margin-top:10px;
-
+font-size:26px;
+letter-spacing:8px;
+margin-top:8px;
 }
 
-.hero-desc{
-
-margin-top:35px;
-
-font-family:Georgia,serif;
-
-font-style:italic;
-
-font-size:24px;
-
-line-height:1.9;
-
+.company-about{
 color:var(--text);
-
+font-size:26px;
+max-width:800px;
+line-height:1.9;
+font-family:Georgia, "Times New Roman", serif;
+font-style:italic;
+font-weight:400;
 }
 
 .about-link{
-
 display:inline-block;
-
-margin-top:30px;
-
 color:var(--gold);
-
 text-decoration:none;
-
-font-size:20px;
-
+font-size:18px;
+font-weight:600;
+margin-top:10px;
 }
 
-.scroll-indicator{
+/* CARDS */
 
-margin-top:50px;
+.verticals{
+padding:40px 0;
+}
 
-font-size:40px;
+.vertical-card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(212,175,55,.15);
+border-radius:18px;
+padding:28px;
+margin-bottom:22px;
+cursor:pointer;
+transition:.3s;
+backdrop-filter:blur(12px);
+}
 
+.vertical-card:hover{
+border-color:var(--gold);
+box-shadow:0 0 30px rgba(212,175,55,.15);
+}
+
+.vertical-title{
+font-size:32px;
+font-family:Georgia,serif;
 color:var(--gold);
-
-animation:bounce 2s infinite;
-
 }
 
-@keyframes bounce{
-
-0%,100%{
-transform:translateY(0);
+.vertical-arrow{
+float:right;
 }
 
-50%{
-transform:translateY(12px);
+.vertical-content{
+display:none;
+padding-top:25px;
+color:var(--text);
+line-height:1.8;
+font-size:18px;
+font-family:Georgia, "Times New Roman", serif;
+font-style:italic;
 }
 
+.show{
+display:block;
 }
 
-@keyframes starGlow{
+/* CONTACT */
 
+.contact{
+padding:60px 0;
+}
+
+.section-title{
+text-align:center;
+font-size:48px;
+font-family:Georgia,serif;
+color:var(--gold);
+margin-bottom:35px;
+}
+
+.contact-box{
+max-width:800px;
+margin:auto;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(212,175,55,.15);
+padding:35px;
+border-radius:20px;
+}
+
+input,
+textarea{
+width:100%;
+padding:18px;
+margin-bottom:18px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(212,175,55,.15);
+border-radius:10px;
+color:white;
+font-size:17px;
+}
+
+textarea{
+height:180px;
+}
+
+.submit-btn{
+background:var(--gold);
+color:black;
+border:none;
+padding:16px 35px;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
+}
+
+ @keyframes starGlow{
 0%{
 transform:scale(1);
+filter:drop-shadow(0 0 5px rgba(212,175,55,.3));
 }
-
 50%{
-transform:scale(1.05);
+transform:scale(1.04);
 filter:
-drop-shadow(0 0 12px rgba(200,164,93,.8));
+drop-shadow(0 0 12px rgba(212,175,55,.9))
+drop-shadow(0 0 25px rgba(212,175,55,.5));
 }
-
 100%{
 transform:scale(1);
+filter:drop-shadow(0 0 5px rgba(212,175,55,.3));
 }
-
 }
-/* BUSINESS SECTIONS */
+ 
+/* MOBILE */
 
-.business-section{
-
-min-height:100vh;
-
-position:relative;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-background-size:cover;
-
-background-position:center;
-
-background-attachment:fixed;
-
-}
-
-.consultancies{
-
-background:
-linear-gradient(
-rgba(7,16,24,.75),
-rgba(7,16,24,.75)
-),
-url('assets/img/consultancies.jpg');
-
-background-size:cover;
-
-}
-
-.linkage{
-
-background:
-linear-gradient(
-rgba(7,16,24,.75),
-rgba(7,16,24,.75)
-),
-url('assets/img/linkage.jpg');
-
-background-size:cover;
-
-}
-
-.pixels{
-
-background:
-linear-gradient(
-rgba(7,16,24,.75),
-rgba(7,16,24,.75)
-),
-url('assets/img/pixels.jpg');
-
-background-size:cover;
-
-}
-
-.business-overlay{
-
-width:100%;
-
-padding:80px 10%;
-
-text-align:center;
-
-}
-
-.business-content{
-
-max-width:900px;
-
-margin:auto;
-
-}
-
-.business-content h2{
-
-font-size:64px;
-
-font-family:Georgia,serif;
-
-color:var(--gold);
-
-margin-bottom:20px;
-
-}
-
-.business-content h3{
-
-font-size:28px;
-
-font-family:Georgia,serif;
-
-font-style:italic;
-
-margin-bottom:30px;
-
-color:var(--gold-light);
-
-}
-
-.business-content p{
-
-font-size:22px;
-
-line-height:2;
-
-font-family:Georgia,serif;
-
-font-style:italic;
-
-color:var(--text);
-
-}
-.consultancies{
-
-height:100vh;
-
-position:relative;
-
-background:
-linear-gradient(
-90deg,
-rgba(7,16,24,.78) 0%,
-rgba(7,16,24,.55) 40%,
-rgba(7,16,24,.15) 100%
-),
-url('assets/img/consultancies.jpg');
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-display:flex;
-align-items:center;
-
-}
-
-.consultancies-content{
-
-max-width:700px;
-
-padding-left:8%;
-
-}
-
-.consultancies-tag{
-
-color:#d4af37;
-
-font-size:14px;
-
-letter-spacing:4px;
-
-text-transform:uppercase;
-
-margin-bottom:20px;
-
-}
-
-.consultancies h2{
-
-font-family:Georgia,serif;
-
-font-size:72px;
-
-line-height:1.05;
-
-color:white;
-
-margin-bottom:25px;
-
-}
-
-.consultancies p{
-
-font-family:Georgia,serif;
-
-font-style:italic;
-
-font-size:24px;
-
-line-height:1.9;
-
-color:#d7d7d7;
-
-max-width:600px;
-
-}
-
-.scroll-line{
-
-width:80px;
-height:2px;
-
-background:#d4af37;
-
-margin-top:40px;
-
-}
-  
 @media(max-width:768px){
 
-.hero-title{
-font-size:42px;
+.company-name{
+font-size:36px;
 }
 
-.hero-title span{
+.company-group{
 font-size:18px;
 letter-spacing:4px;
 }
 
-.hero-desc{
-font-size:19px;
+.company-about{
+font-size:22px;
+line-height:1.8;
+}
+
+.vertical-title{
+font-size:24px;
+}
+
+.section-title{
+font-size:34px;
 }
 
 .nav-links{
 gap:15px;
 font-size:14px;
-}
-
-.logo-text{
-display:none;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
 <nav>
+<div class="container nav-inner">
 
-<div class="logo">
-
+<div class="nav-logo">
 <img src="assets/img/logo.png" alt="Logo">
-
-<div class="logo-text">
-
-CONSTELLATION-DELTA
-
-</div>
-
 </div>
 
 <div class="nav-links">
-
-<a href="#home">Home</a>
-
 <a href="about.html">About Us</a>
-
-<a href="#verticals">Business Verticals</a>
-
 <a href="#contact">Contact Us</a>
-
 </div>
 
+</div>
 </nav>
 
-<section id="home" class="hero">
+<section class="hero">
 
-<div class="hero-content">
+<div class="container">
 
-<img
-src="assets/img/logo.png"
-class="hero-logo">
+<img src="assets/img/logo.png" class="hero-logo">
 
-<h1 class="hero-title">
-
+<h1 class="company-name">
 CONSTELLATION-DELTA
-
-<span>GROUP</span>
-
+<span class="company-group">GROUP</span>
 </h1>
 
-<p class="hero-desc">
-
-Strategic Consulting • Market Linkage • Reputation Management
-
+<p class="company-about">
+Constellation-Delta Group is a multidisciplinary
+business platform bringing together strategic
+consulting, market linkage, and reputation
+management solutions.
 </p>
-
-<a
-href="about.html"
-class="about-link">
-
-About Constellation-Delta →
-
-</a>
-
-<div class="scroll-indicator">
-
-⌄
-
-</div>
 
 </div>
 
 </section>
-<section id="verticals">
 
-<!-- DELTA CONSULTANCIES -->
+<section class="verticals">
+<div class="container">
+<div class="vertical-card"
+onclick="toggleCard('consultancies')">
 
-<section class="consultancies">
-
-<div class="consultancies-content">
-
-<div class="consultancies-tag">
-BUSINESS VERTICAL
+<div class="vertical-title">
+DELTA CONSULTANCIES
+<span class="vertical-arrow">+</span>
 </div>
 
-<h2>
-Delta<br>Consultancies
-</h2>
+<div id="consultancies"
+class="vertical-content">
+
+<h3 style="color:#d4af37;margin-bottom:15px;">
+Strategic Advisory & Business Solutions
+</h3>
 
 <p>
-Strategic advisory and business solutions focused on growth, market positioning, decision support, and sustainable expansion.
+We provide strategic consulting,
+risk analysis,
+business planning,
+and growth-oriented solutions that help
+organizations make informed decisions
+and achieve sustainable success.
 </p>
-
-<div class="scroll-line"></div>
 
 </div>
 
-</section>
+</div>
 
-<!-- DELTA LINKAGE -->
+<div class="vertical-card"
+onclick="toggleCard('linkage')">
 
-<section class="business-section linkage">
+<div class="vertical-title">
+DELTA LINKAGE
+<span class="vertical-arrow">+</span>
+</div>
 
-<div class="business-overlay">
+<div id="linkage"
+class="vertical-content">
 
-<div class="business-content">
-
-<h2>DELTA LINKAGE</h2>
-
-<h3>
+<h3 style="color:#d4af37;margin-bottom:15px;">
 Market Access & Partnership Development
 </h3>
 
 <p>
-
 We enable seamless market linkage by
 connecting businesses with strategic partners,
 distributors,
 investors,
 and growth opportunities that accelerate
 expansion and strengthen market presence.
-
 </p>
 
 </div>
 
 </div>
 
-</section>
+<div class="vertical-card"
+onclick="toggleCard('pixels')">
 
-<!-- DELTA PIXELS -->
+<div class="vertical-title">
+DELTA PIXELS
+<span class="vertical-arrow">+</span>
+</div>
 
-<section class="business-section pixels">
+<div id="pixels"
+class="vertical-content">
 
-<div class="business-overlay">
-
-<div class="business-content">
-
-<h2>DELTA PIXELS</h2>
-
-<h3>
+<h3 style="color:#d4af37;margin-bottom:15px;">
 PR Communications & Reputation Management
 </h3>
 
 <p>
-
 We help organizations build credibility,
 strengthen reputation,
 and communicate effectively through public
 relations,
 digital presence management,
 and strategic brand positioning.
-
 </p>
 
 </div>
 
 </div>
 
+</div>
 </section>
 
-</section>
-<section id="contact">
+<section id="contact" class="contact">
 
-<div class="contact-wrapper">
+<div class="container">
 
-<h2 class="contact-title">
-
+<h2 class="section-title">
 CONTACT US
-
 </h2>
 
+<div class="contact-box">
+
 <form
-class="contact-form"
 action="https://formspree.io/f/mpqogeao"
 method="POST">
 
@@ -695,174 +460,52 @@ required>
 
 <button
 type="submit"
-class="contact-btn">
-
+class="submit-btn">
 Send Message
-
 </button>
 
 </form>
 
 </div>
 
+</div>
+
 </section>
-
-<style>
-
-/* CONTACT */
-
-#contact{
-
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-padding:100px 10%;
-
-background:
-linear-gradient(
-180deg,
-#071018,
-#0b1520
-);
-
-}
-
-.contact-wrapper{
-
-width:100%;
-max-width:800px;
-
-}
-
-.contact-title{
-
+<footer style="
 text-align:center;
+padding:40px 20px;
+border-top:1px solid rgba(212,175,55,.12);
+color:#9e9e9e;
+font-size:14px;
+">
 
-font-family:Georgia,serif;
+© 2026 Constellation-Delta Group
 
-font-size:60px;
-
-color:var(--gold);
-
-margin-bottom:40px;
-
-}
-
-.contact-form input,
-.contact-form textarea{
-
-width:100%;
-
-padding:20px;
-
-margin-bottom:20px;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(200,164,93,.25);
-
-border-radius:12px;
-
-color:white;
-
-font-size:18px;
-
-}
-
-.contact-form textarea{
-
-height:220px;
-
-resize:none;
-
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder{
-
-color:#b5b5b5;
-
-font-family:Georgia,serif;
-font-style:italic;
-
-}
-
-.contact-btn{
-
-background:var(--gold);
-
-color:#071018;
-
-border:none;
-
-padding:18px 40px;
-
-font-size:18px;
-
-font-weight:700;
-
-border-radius:12px;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.contact-btn:hover{
-
-transform:translateY(-3px);
-
-background:var(--gold-light);
-
-}
-
-</style>
+</footer>
 
 <script>
 
-/* SCROLL ANIMATION */
+function toggleCard(id){
 
-const sections =
-document.querySelectorAll('.business-content');
+const cards =
+document.querySelectorAll('.vertical-content');
 
-const observer =
-new IntersectionObserver(entries=>{
+cards.forEach(card=>{
 
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity='1';
-
-entry.target.style.transform='translateY(0)';
-
+if(card.id !== id){
+card.classList.remove('show');
 }
 
 });
 
-},{
-threshold:.25
-});
+document
+.getElementById(id)
+.classList
+.toggle('show');
 
-sections.forEach(section=>{
-
-section.style.opacity='0';
-
-section.style.transform='translateY(60px)';
-
-section.style.transition='all 1s ease';
-
-observer.observe(section);
-
-});
+}
 
 </script>
 
 </body>
-</html>
+</html>  
