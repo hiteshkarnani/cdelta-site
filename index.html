@@ -11,6 +11,27 @@
 
 <style>
 
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:18px;
+font-size:18px;
+border-radius:12px;
+border:1px solid rgba(212,175,55,.2);
+background:rgba(255,255,255,.04);
+color:white;
+margin-bottom:18px;
+}
+
+.contact-form textarea{
+height:180px;
+resize:none;
+}
+
+:root{
+...
+<style>
+
 :root{
 --bg:#0b120d;
 --bg2:#162019;
@@ -423,6 +444,7 @@ CONTACT US
 <div class="contact-box">
 
 <form
+class="contact-form"
 action="https://formspree.io/f/mpqogeao"
 method="POST">
 
@@ -437,12 +459,6 @@ type="email"
 name="email"
 placeholder="Email Address"
 required>
-
-<textarea
-name="message"
-placeholder="Tell us about your requirements"
-required>
-</textarea>
 
 <button
 type="submit"
