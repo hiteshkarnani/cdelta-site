@@ -11,27 +11,6 @@
 
 <style>
 
-.contact-form input,
-.contact-form textarea{
-width:100%;
-padding:18px;
-font-size:18px;
-border-radius:12px;
-border:1px solid rgba(212,175,55,.2);
-background:rgba(255,255,255,.04);
-color:white;
-margin-bottom:18px;
-}
-
-.contact-form textarea{
-height:180px;
-resize:none;
-}
-
-:root{
-...
-<style>
-
 :root{
 --bg:#0b120d;
 --bg2:#162019;
@@ -138,15 +117,11 @@ margin-top:8px;
 }
 
 .company-about{
-max-width:850px;
+max-width:800px;
 margin:35px auto;
-font-size:22px;
-line-height:2;
-color:#d8d8d8;
-
-font-family:"Times New Roman", serif;
-font-style:italic;
-font-weight:400;
+font-size:20px;
+line-height:1.9;
+color:var(--text);
 }
 
 .about-link{
@@ -176,24 +151,18 @@ backdrop-filter:blur(12px);
 }
 
 .vertical-card:hover{
-transform:translateY(-4px);
-border-color:#d4af37;
-box-shadow:0 12px 35px rgba(212,175,55,.18);
+border-color:var(--gold);
+box-shadow:0 0 30px rgba(212,175,55,.15);
 }
 
 .vertical-title{
-font-size:36px;
+font-size:32px;
 font-family:Georgia,serif;
-font-weight:700;
-letter-spacing:1px;
 color:var(--gold);
 }
 
 .vertical-arrow{
 float:right;
-font-size:42px;
-font-weight:200;
-color:#d4af37;
 }
 
 .vertical-content{
@@ -231,15 +200,16 @@ padding:35px;
 border-radius:20px;
 }
 
+input,
 textarea{
 width:100%;
-height:180px;
 padding:18px;
-font-size:18px;
-border-radius:10px;
-border:1px solid rgba(212,175,55,.15);
+margin-bottom:18px;
 background:rgba(255,255,255,.05);
+border:1px solid rgba(212,175,55,.15);
+border-radius:10px;
 color:white;
+font-size:17px;
 }
 
 textarea{
@@ -325,8 +295,13 @@ business platform bringing together strategic
 consulting, market linkage, and reputation
 management solutions.
 </p>
+
+<a href="about.html" class="about-link">
+About Constellation-Delta →
+</a>
+
 </div>
-  
+
 </section>
 
 <section class="verticals">
@@ -336,18 +311,13 @@ onclick="toggleCard('consultancies')">
 
 <div class="vertical-title">
 DELTA CONSULTANCIES
-<span class="vertical-arrow">+</span>
+<span class="vertical-arrow">▼</span>
 </div>
 
 <div id="consultancies"
 class="vertical-content">
 
-<h3 style="
-color:#f0cf6b;
-margin-bottom:18px;
-font-size:28px;
-font-family:Georgia,serif;
-">
+<h3 style="color:#d4af37;margin-bottom:15px;">
 Strategic Advisory & Business Solutions
 </h3>
 
@@ -369,18 +339,13 @@ onclick="toggleCard('linkage')">
 
 <div class="vertical-title">
 DELTA LINKAGE
-<span class="vertical-arrow">+</span>
+<span class="vertical-arrow">▼</span>
 </div>
 
 <div id="linkage"
 class="vertical-content">
 
-<h3 style="
-color:#f0cf6b;
-margin-bottom:18px;
-font-size:28px;
-font-family:Georgia,serif;
-">
+<h3 style="color:#d4af37;margin-bottom:15px;">
 Market Access & Partnership Development
 </h3>
 
@@ -402,18 +367,13 @@ onclick="toggleCard('pixels')">
 
 <div class="vertical-title">
 DELTA PIXELS
-<span class="vertical-arrow">+</span>
+<span class="vertical-arrow">▼</span>
 </div>
 
 <div id="pixels"
 class="vertical-content">
 
-<h3 style="
-color:#f0cf6b;
-margin-bottom:18px;
-font-size:28px;
-font-family:Georgia,serif;
-">
+<h3 style="color:#d4af37;margin-bottom:15px;">
 PR Communications & Reputation Management
 </h3>
 
@@ -444,7 +404,6 @@ CONTACT US
 <div class="contact-box">
 
 <form
-class="contact-form"
 action="https://formspree.io/f/mpqogeao"
 method="POST">
 
@@ -459,6 +418,12 @@ type="email"
 name="email"
 placeholder="Email Address"
 required>
+
+<textarea
+name="message"
+placeholder="Tell us about your requirements"
+required>
+</textarea>
 
 <button
 type="submit"
@@ -506,7 +471,8 @@ document
 .toggle('show');
 
 }
+
 </script>
 
 </body>
-</html>
+</html>  
