@@ -478,6 +478,9 @@ function toggleCard(id){
 const cards =
 document.querySelectorAll('.vertical-content');
 
+const arrows =
+document.querySelectorAll('.vertical-arrow');
+
 cards.forEach(card=>{
 
 if(card.id !== id){
@@ -486,10 +489,24 @@ card.classList.remove('show');
 
 });
 
-document
-.getElementById(id)
-.classList
-.toggle('show');
+arrows.forEach(arrow=>{
+arrow.innerHTML='+';
+});
+
+const current =
+document.getElementById(id);
+
+if(current.classList.contains('show')){
+
+current.classList.remove('show');
+
+}else{
+
+current.classList.add('show');
+
+event.currentTarget
+.querySelector('.vertical-arrow')
+.innerHTML='−';
 
 }
 
