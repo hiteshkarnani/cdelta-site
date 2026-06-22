@@ -8,126 +8,197 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo-link">
-                <img src="assets/img/logo-text.png" alt="Constellation Delta Group" class="nav-logo">
+    <canvas id="constellation-canvas"></canvas>
+
+    <nav class="hud-navbar" id="hud-nav">
+        <div class="hud-container">
+            <a href="index.html" class="hud-logo-frame">
+                <img src="assets/img/logo-text.png" alt="Constellation Delta Group" class="hud-logo-img">
             </a>
-            <ul class="nav-links">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="#verticals">Verticals</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="hud-links">
+                <a href="about.html" class="hud-link">About Group</a>
+                <a href="#verticals" class="hud-link">Verticals</a>
+                <a href="#contact" class="hud-link active-cta">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-bg-glow"></div>
-        <div class="hero-content">
-            <img src="assets/img/logo.png" alt="Constellation Delta Emblem" class="hero-emblem animate-on-load">
-            <h1 class="animate-on-load">Navigating Global Frontiers</h1>
-            <p class="animate-on-load">A multidisciplinary enterprise platform empowering corporate ecosystems through strategic acuity, seamless market entry, and reputation architecture.</p>
-            <a href="#verticals" class="cta-btn animate-on-load">Explore Verticals</a>
+    <header class="cinema-hero">
+        <div class="hero-focus-matrix">
+            <div class="emblem-pulsar-wrapper">
+                <img src="assets/img/logo.png" alt="Constellation Delta Star" class="pulsar-star-emblem">
+            </div>
+            <h1 class="reveal-text">NAVIGATING GLOBAL FRONTIERS</h1>
+            <p class="reveal-subtext">A multidisciplinary platform driving corporate evolution through deep strategic insight, market integration, and reputation architecture.</p>
+            <div class="scroll-indicator-frame">
+                <a href="#verticals" class="explore-trigger">Explore Verticals <span class="arrow-down">↓</span></a>
+            </div>
         </div>
     </header>
 
-    <section id="verticals" class="verticals-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="subtitle">Our Architecture</span>
-                <h2>Core Business Verticals</h2>
+    <main class="content-stream">
+        <section id="verticals" class="interactive-matrix-section">
+            <div class="section-intel-header">
+                <span class="matrix-tag">OPERATIONAL DIVISIONS</span>
+                <h2 class="matrix-title">Business Verticals</h2>
             </div>
-            
-            <div class="verticals-grid">
-                <div class="v-card fade-in">
-                    <div class="card-border-glow"></div>
-                    <div class="v-card-content">
+
+            <div class="matrix-grid">
+                <div class="matrix-node" data-tilt>
+                    <div class="node-glow-conductor"></div>
+                    <div class="node-internal">
+                        <div class="node-index">01 //</div>
                         <h3>Delta Consultancies</h3>
-                        <span class="v-subtitle">Strategic Advisory & Business Solutions</span>
+                        <span class="node-specialization">Strategic Advisory & Business Solutions</span>
                         <p>We provide strategic consulting, risk analysis, business planning, and growth-oriented solutions that help organizations make informed decisions and achieve sustainable success.</p>
                     </div>
                 </div>
 
-                <div class="v-card fade-in">
-                    <div class="card-border-glow"></div>
-                    <div class="v-card-content">
+                <div class="matrix-node" data-tilt>
+                    <div class="node-glow-conductor"></div>
+                    <div class="node-internal">
+                        <div class="node-index">02 //</div>
                         <h3>Delta Linkage</h3>
-                        <span class="v-subtitle">Market Access & Partnership Development</span>
+                        <span class="node-specialization">Market Access & Partnership Development</span>
                         <p>We enable seamless market linkage by connecting businesses with strategic partners, distributors, investors, and growth opportunities that accelerate expansion and strengthen market presence.</p>
                     </div>
                 </div>
 
-                <div class="v-card fade-in">
-                    <div class="card-border-glow"></div>
-                    <div class="v-card-content">
+                <div class="matrix-node" data-tilt>
+                    <div class="node-glow-conductor"></div>
+                    <div class="node-internal">
+                        <div class="node-index">03 //</div>
                         <h3>Delta Pixels</h3>
-                        <span class="v-subtitle">PR Communications & Reputation Management</span>
+                        <span class="node-specialization">PR Communications & Reputation Management</span>
                         <p>We help organizations build credibility, strengthen reputation, and communicate effectively through public relations, digital presence management, and strategic brand positioning.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container small-container">
-            <div class="section-header center">
-                <span class="subtitle">Inquiries</span>
-                <h2>Connect Internationally</h2>
+        <section id="contact" class="quantum-form-section">
+            <div class="form-container">
+                <div class="form-intel-header">
+                    <span class="matrix-tag">SECURE CHANNEL</span>
+                    <h2>Initiate Contact</h2>
+                </div>
+
+                <form action="https://formspree.io/f/fihitesh@cdelta.in" method="POST" class="quantum-form">
+                    <div class="quantum-field">
+                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <label for="name">Full Name</label>
+                        <div class="field-bar"></div>
+                    </div>
+
+                    <div class="quantum-field">
+                        <input type="email" id="email" name="_replyto" required placeholder=" ">
+                        <label for="email">Email Address</label>
+                        <div class="field-bar"></div>
+                    </div>
+
+                    <div class="quantum-field">
+                        <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                        <label for="message">Message</label>
+                        <div class="field-bar"></div>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="Secure Corporate Inquiry - CDelta">
+                    <button type="submit" class="quantum-submit-btn">
+                        <span>Transmission Request</span>
+                    </button>
+                </form>
             </div>
-            
-            <form action="https://formspree.io/f/fihitesh@cdelta.in" method="POST" class="contact-form fade-in">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" required>
-                    <label for="name">Full Name</label>
-                </div>
-                
-                <div class="form-group">
-                    <input type="email" id="email" name="_replyto" required>
-                    <label for="email">Email Address</label>
-                </div>
-                
-                <div class="form-group">
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    <label for="message">Message</label>
-                </div>
+        </section>
+    </main>
 
-                <input type="hidden" name="_subject" value="Global Business Inquiry - CDelta">
-                <button type="submit" class="submit-btn">Submit Request</button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>&copy; 2026 Constellation-Delta Group. All rights reserved.</p>
+    <footer class="matrix-footer">
+        <p>&copy; 2026 Constellation-Delta Group. All engineering parameters active.</p>
     </footer>
 
     <script>
-        // Navbar Shrink and Blur on Scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+        // High-Performance HTML5 Canvas Constellation Galaxy Engine
+        const canvas = document.getElementById('constellation-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 75;
 
-        // Intersection Observer for Active Fade-In Elements
-        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.speedX = (Math.random() - 0.5) * 0.35;
+                this.speedY = (Math.random() - 0.5) * 0.35;
+                this.radius = Math.random() * 1.5 + 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(229, 193, 88, 0.4)';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateGalaxy() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, idx) => {
+                p.update();
+                p.draw();
+                for (let j = idx + 1; j < particles.length; j++) {
+                    const dist = Math.hypot(p.x - particles[j].x, p.y - particles[j].y);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(229, 193, 88, ${0.12 * (1 - dist/120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
                 }
             });
-        }, observerOptions);
+            requestAnimationFrame(animateGalaxy);
+        }
+        animateGalaxy();
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        // Advanced Mouse-Move Coordinate Glow Conductor for Matrix Cards
+        const nodes = document.querySelectorAll('.matrix-node');
+        nodes.forEach(node => {
+            node.addEventListener('mousemove', e => {
+                const rect = node.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const conductor = node.querySelector('.node-glow-conductor');
+                conductor.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(229, 193, 88, 0.08), transparent 40%)`;
+            });
+        });
+
+        // Intersection Viewport Trigger Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('node-active');
+            });
+        }, { threshold: 0.1 });
+        nodes.forEach(node => observer.observe(node));
     </script>
 </body>
 </html>
