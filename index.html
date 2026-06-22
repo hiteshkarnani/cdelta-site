@@ -1,511 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Constellation-Delta Group</title>
-
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
-
-<style>
-  *{
--webkit-tap-highlight-color: transparent;
-}
-
-.vertical-card,
-a,
-button{
--webkit-tap-highlight-color: transparent;
-outline:none;
-}
-
-.vertical-card{
-user-select:none;
-}
-
-:root{
---bg:#0b120d;
---bg2:#162019;
---gold:#d4af37;
---gold-light:#f0cf6b;
---text:#d6d6d6;
---white:#ffffff;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:
-linear-gradient(
-180deg,
-#0b120d,
-#142018,
-#0b120d
-);
-color:var(--white);
-font-family:Arial,sans-serif;
-overflow-x:hidden;
-}
-
-.container{
-width:min(1100px,90%);
-margin:auto;
-}
-
-/* NAVBAR */
-
-nav{
-position:sticky;
-top:0;
-z-index:1000;
-background:rgba(10,15,12,.85);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(212,175,55,.12);
-}
-
-.nav-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
-}
-
-.nav-logo{
-display:flex;
-align-items:center;
-gap:12px;
-}
-
-.nav-logo img{
-height:54px;
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-}
-
-.nav-links a{
-color:var(--gold);
-text-decoration:none;
-font-weight:600;
-}
-
-/* HERO */
-
-.hero{
-padding:70px 0 40px;
-text-align:center;
-}
-
-.hero-logo{
-width:140px;
-margin:auto;
-display:block;
-animation:starGlow 3s ease-in-out infinite;
-}
-
-.company-name{
-font-family:Georgia,serif;
-font-size:58px;
-font-weight:700;
-color:var(--gold);
-letter-spacing:2px;
-margin-top:25px;
-}
-
-.company-group{
-display:block;
-font-size:26px;
-letter-spacing:8px;
-margin-top:8px;
-}
-
-.company-about{
-color:var(--text);
-font-size:26px;
-max-width:800px;
-line-height:1.9;
-font-family:Georgia, "Times New Roman", serif;
-font-style:italic;
-font-weight:400;
-}
-
-.about-link{
-display:inline-block;
-color:var(--gold);
-text-decoration:none;
-font-size:18px;
-font-weight:600;
-margin-top:10px;
-}
-
-/* CARDS */
-
-.verticals{
-padding:40px 0;
-}
-
-.vertical-card{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(212,175,55,.15);
-border-radius:18px;
-padding:28px;
-margin-bottom:22px;
-cursor:pointer;
-transition:.3s;
-backdrop-filter:blur(12px);
-}
-
-.vertical-card:hover{
-border-color:var(--gold);
-box-shadow:0 0 30px rgba(212,175,55,.15);
-}
-
-.vertical-title{
-font-size:32px;
-font-family:Georgia,serif;
-color:var(--gold);
-}
-
-.vertical-arrow{
-float:right;
-}
-
-.vertical-content{
-display:none;
-padding-top:25px;
-color:var(--text);
-line-height:1.8;
-font-size:18px;
-font-family:Georgia, "Times New Roman", serif;
-font-style:italic;
-}
-
-.show{
-display:block;
-}
-
-/* CONTACT */
-
-.contact{
-padding:60px 0;
-}
-
-.section-title{
-text-align:center;
-font-size:48px;
-font-family:Georgia,serif;
-color:var(--gold);
-margin-bottom:35px;
-}
-
-.contact-box{
-max-width:800px;
-margin:auto;
-background:rgba(255,255,255,.03);
-border:1px solid rgba(212,175,55,.15);
-padding:35px;
-border-radius:20px;
-}
-
-input,
-textarea{
-width:100%;
-padding:18px;
-margin-bottom:18px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(212,175,55,.15);
-border-radius:10px;
-color:white;
-font-size:17px;
-}
-
-textarea{
-height:180px;
-}
-
-.submit-btn{
-background:var(--gold);
-color:black;
-border:none;
-padding:16px 35px;
-border-radius:10px;
-font-weight:700;
-cursor:pointer;
-}
-
- @keyframes starGlow{
-0%{
-transform:scale(1);
-filter:drop-shadow(0 0 5px rgba(212,175,55,.3));
-}
-50%{
-transform:scale(1.04);
-filter:
-drop-shadow(0 0 12px rgba(212,175,55,.9))
-drop-shadow(0 0 25px rgba(212,175,55,.5));
-}
-100%{
-transform:scale(1);
-filter:drop-shadow(0 0 5px rgba(212,175,55,.3));
-}
-}
- 
-/* MOBILE */
-
-@media(max-width:768px){
-
-.company-name{
-font-size:36px;
-}
-
-.company-group{
-font-size:18px;
-letter-spacing:4px;
-}
-
-.company-about{
-font-size:22px;
-line-height:1.8;
-}
-
-.vertical-title{
-font-size:24px;
-}
-
-.section-title{
-font-size:34px;
-}
-
-.nav-links{
-gap:15px;
-font-size:14px;
-}
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constellation Delta - Group | Corporate Consulting</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<nav>
-<div class="container nav-inner">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">CONSTELLATION DELTA <span>GROUP</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#verticals">Verticals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="nav-logo">
-<img src="assets/img/logo.png" alt="Logo">
-</div>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Navigating Growth. <br>Securing Success.</h1>
+            <p>A multidisciplinary business platform driving strategic consulting, market linkage, and reputation management solutions.</p>
+            <a href="#verticals" class="btn">Explore Our Verticals</a>
+        </div>
+    </header>
 
-<div class="nav-links">
-<a href="about.html">About Us</a>
-<a href="#contact">Contact Us</a>
-</div>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Constellation-Delta Group</h2>
+            <p>Constellation-Delta Group is a multidisciplinary business platform bringing together strategic consulting, market linkage, and reputation management solutions. Through Delta Consultancies, Delta Linkage, and Delta Pixels we help organizations identify opportunities, build meaningful partnerships, strengthen market presence and achieve sustainable growth.</p>
+        </div>
+    </section>
 
-</div>
-</nav>
+    <!-- Business Verticals Section -->
+    <section id="verticals" class="verticals-section">
+        <div class="container">
+            <h2 class="section-title">Our Business Verticals</h2>
+            <div class="grid">
+                
+                <!-- Vertical 1 -->
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Delta Consultancies</h3>
+                    <h4>Strategic Advisory & Business Solutions</h4>
+                    <p>We provide strategic consulting, risk analysis, business planning, and growth-oriented solutions that help organizations make informed decisions and achieve sustainable success.</p>
+                </div>
 
-<section class="hero">
+                <!-- Vertical 2 -->
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Delta Linkage</h3>
+                    <h4>Market Access & Partnership Development</h4>
+                    <p>We enable seamless market linkage by connecting businesses with strategic partners, distributors, investors, and growth opportunities that accelerate expansion and strengthen market presence.</p>
+                </div>
 
-<div class="container">
+                <!-- Vertical 3 -->
+                <div class="card">
+                    <div class="card-icon">✨</div>
+                    <h3>Delta Pixels</h3>
+                    <h4>PR Communications & Reputation Management</h4>
+                    <p>We help organizations build credibility, strengthen reputation, and communicate effectively through public relations, digital presence management, and strategic brand positioning.</p>
+                </div>
 
-<img src="assets/img/logo.png" class="hero-logo">
+            </div>
+        </div>
+    </section>
 
-<h1 class="company-name">
-CONSTELLATION-DELTA
-<span class="company-group">GROUP</span>
-</h1>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container small-container">
+            <h2>Connect With Us</h2>
+            <p>Get in touch with our team to explore how we can accelerate your organizational objectives.</p>
+            
+            <!-- Form points to Formspree for easy backend-free email sending -->
+            <form action="https://formspree.io/f/fihitesh@cdelta.in" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="_replyto" placeholder="john@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                </div>
 
-<p class="company-about">
-Constellation-Delta Group is a multidisciplinary
-business platform bringing together strategic
-consulting, market linkage, and reputation
-management solutions.
-</p>
+                <!-- Hidden field to control email subject line -->
+                <input type="hidden" name="_subject" value="New Inquiry - Constellation Delta Group">
+                
+                <button type="submit" class="btn submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-</div>
-
-</section>
-
-<section class="verticals">
-<div class="container">
-<div class="vertical-card"
-onclick="toggleCard('consultancies')">
-
-<div class="vertical-title">
-DELTA CONSULTANCIES
-<span class="vertical-arrow">+</span>
-</div>
-
-<div id="consultancies"
-class="vertical-content">
-
-<h3 style="color:#d4af37;margin-bottom:15px;">
-Strategic Advisory & Business Solutions
-</h3>
-
-<p>
-We provide strategic consulting,
-risk analysis,
-business planning,
-and growth-oriented solutions that help
-organizations make informed decisions
-and achieve sustainable success.
-</p>
-
-</div>
-
-</div>
-
-<div class="vertical-card"
-onclick="toggleCard('linkage')">
-
-<div class="vertical-title">
-DELTA LINKAGE
-<span class="vertical-arrow">+</span>
-</div>
-
-<div id="linkage"
-class="vertical-content">
-
-<h3 style="color:#d4af37;margin-bottom:15px;">
-Market Access & Partnership Development
-</h3>
-
-<p>
-We enable seamless market linkage by
-connecting businesses with strategic partners,
-distributors,
-investors,
-and growth opportunities that accelerate
-expansion and strengthen market presence.
-</p>
-
-</div>
-
-</div>
-
-<div class="vertical-card"
-onclick="toggleCard('pixels')">
-
-<div class="vertical-title">
-DELTA PIXELS
-<span class="vertical-arrow">+</span>
-</div>
-
-<div id="pixels"
-class="vertical-content">
-
-<h3 style="color:#d4af37;margin-bottom:15px;">
-PR Communications & Reputation Management
-</h3>
-
-<p>
-We help organizations build credibility,
-strengthen reputation,
-and communicate effectively through public
-relations,
-digital presence management,
-and strategic brand positioning.
-</p>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section id="contact" class="contact">
-
-<div class="container">
-
-<h2 class="section-title">
-CONTACT US
-</h2>
-
-<div class="contact-box">
-
-<form
-action="https://formspree.io/f/mpqogeao"
-method="POST">
-
-<input
-type="text"
-name="name"
-placeholder="Full Name"
-required>
-
-<input
-type="email"
-name="email"
-placeholder="Email Address"
-required>
-
-<textarea
-name="message"
-placeholder="Tell us about your requirements"
-required>
-</textarea>
-
-<button
-type="submit"
-class="submit-btn">
-Send Message
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-<footer style="
-text-align:center;
-padding:40px 20px;
-border-top:1px solid rgba(212,175,55,.12);
-color:#9e9e9e;
-font-size:14px;
-">
-
-© 2026 Constellation-Delta Group
-
-</footer>
-
-<script>
-
-function toggleCard(id){
-
-const cards =
-document.querySelectorAll('.vertical-content');
-
-cards.forEach(card=>{
-
-if(card.id !== id){
-card.classList.remove('show');
-}
-
-});
-
-document
-.getElementById(id)
-.classList
-.toggle('show');
-
-}
-
-</script>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Constellation-Delta Group. All rights reserved.</p>
+    </footer>
 
 </body>
-</html>  
+</html>
