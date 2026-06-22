@@ -46,6 +46,14 @@ body {
     z-index: 2000;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.nav-logo {
+    height: 24px; /* Hard limit for header size */
+    max-width: 100%;
+    object-fit: contain;
+    width: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
 
 /* Dynamic Active State trigger via JS */
 .navbar.scrolled {
