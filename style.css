@@ -13,7 +13,6 @@
     --font-primary: 'Montserrat', sans-serif;
 }
 
-/* Base Engine Rules */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--space-void); }
 body {
@@ -24,7 +23,6 @@ body {
     line-height: 1.65;
 }
 
-/* High-Performance Canvas Space Linkage */
 #constellation-canvas {
     position: fixed;
     top: 0;
@@ -63,14 +61,23 @@ body {
 .hud-logo-frame {
     display: flex;
     align-items: center;
-    max-width: 280px; /* Safeguards mobile blowout strictly */
 }
 
+/* Star logo styling for top left */
 .hud-logo-img {
-    width: 100%;
-    height: auto;
-    max-height: 20px; /* Keeps layout slim and hyper-controlled */
+    width: auto;
+    height: 38px; 
     object-fit: contain;
+}
+
+/* Specific glowing animation for the nav star */
+.star-glow {
+    animation: navStarPulse 3s infinite ease-in-out;
+}
+
+@keyframes navStarPulse {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(229, 193, 88, 0.3)); transform: scale(1); }
+    50% { filter: drop-shadow(0 0 18px rgba(229, 193, 88, 0.7)); transform: scale(1.03); }
 }
 
 .hud-links {
@@ -104,7 +111,7 @@ body {
 }
 
 /* ==========================================================================
-   3. CINEMATIC HERO SPACE & PULSAR EXPLICIT GLOW
+   3. CINEMATIC HERO SPACE & CSS TEXT LOGO
    ========================================================================== */
 .cinema-hero {
     min-height: 100vh;
@@ -119,50 +126,59 @@ body {
 .hero-focus-matrix {
     max-width: 900px;
     text-align: center;
+    margin-top: -50px;
 }
 
-/* Explicit Radiant Pulsar Star Glow Configuration */
-.emblem-pulsar-wrapper {
-    position: relative;
-    display: inline-block;
+/* Pure CSS Replacement for logo-text.png */
+.hero-text-logo {
     margin-bottom: 40px;
+    user-select: none;
 }
 
-.pulsar-star-emblem {
-    height: 100px;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    animation: pulsarGlowAnimation 3.5s infinite ease-in-out;
+.logo-title {
+    /* Uses clamp to auto-scale perfectly on phones vs desktops */
+    font-size: clamp(1.8rem, 5vw, 4rem); 
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #ffffff;
+    line-height: 1;
 }
 
-@keyframes pulsarGlowAnimation {
-    0% {
-        filter: drop-shadow(0 0 15px rgba(229, 193, 88, 0.25)) brightness(1);
-        transform: scale(1);
-    }
-    50% {
-        filter: drop-shadow(0 0 45px rgba(229, 193, 88, 0.75)) brightness(1.2);
-        transform: scale(1.02);
-    }
-    100% {
-        filter: drop-shadow(0 0 15px rgba(229, 193, 88, 0.25)) brightness(1);
-        transform: scale(1);
-    }
+.logo-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
 }
 
-.cinema-hero h1 {
-    font-size: 3.5rem;
+.logo-subtitle .logo-text {
+    font-size: clamp(1rem, 2vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: 8px;
+    color: #ffffff;
+}
+
+.logo-subtitle .logo-line {
+    height: 2px;
+    flex-grow: 1;
+    max-width: 250px;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+.reveal-text {
+    font-size: 1.5rem;
     font-weight: 200;
     letter-spacing: 6px;
     line-height: 1.2;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     background: linear-gradient(180deg, #ffffff 30%, var(--text-ambient));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.cinema-hero p {
+.reveal-subtext {
     font-size: 1.05rem;
     color: var(--text-ambient);
     font-weight: 400;
@@ -182,7 +198,7 @@ body {
 @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-5px); } 60% { transform: translateY(-3px); } }
 
 /* ==========================================================================
-   4. INTERACTIVE MATRIX NODE ARCHITECTURE (NO EMOJIS)
+   4. INTERACTIVE MATRIX NODE ARCHITECTURE
    ========================================================================== */
 .content-stream { position: relative; z-index: 10; background: linear-gradient(to bottom, transparent, var(--space-void) 15%); }
 
@@ -211,7 +227,6 @@ body {
 .node-specialization { font-size: 0.75rem; color: var(--gold-stellar); display: block; margin-bottom: 25px; letter-spacing: 1px; font-weight: 600; }
 .matrix-node p { color: var(--text-ambient); font-size: 0.92rem; font-weight: 400; text-align: justify; }
 
-/* Node Hover State Transformations */
 .matrix-node:hover {
     transform: translateY(-8px) scale(1.01);
     border-color: rgba(229, 193, 88, 0.3);
@@ -219,7 +234,7 @@ body {
 }
 
 /* ==========================================================================
-   5. ADVANCED QUANTUM COMPONENT FORM FIELDS (SUBJECT ONLY)
+   5. ADVANCED QUANTUM COMPONENT FORM FIELDS
    ========================================================================== */
 .quantum-form-section { padding: 140px 40px; background: linear-gradient(to bottom, transparent, var(--space-surface)); }
 .form-container { max-width: 650px; margin: 0 auto; }
@@ -256,7 +271,6 @@ body {
 .field-bar { position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold-stellar); transition: width 0.4s ease; }
 .quantum-field input:focus ~ .field-bar, .quantum-field textarea:focus ~ .field-bar { width: 100%; }
 
-/* Advanced Label Displacement Architecture */
 .quantum-field input:focus ~ label, .quantum-field input:not(:placeholder-shown) ~ label,
 .quantum-field textarea:focus ~ label, .quantum-field textarea:not(:placeholder-shown) ~ label {
     top: -16px;
@@ -300,14 +314,31 @@ body {
 @media (max-width: 968px) {
     .profile-body-grid { grid-template-columns: 1fr; gap: 40px; }
     .document-frame { padding: 40px 25px; }
-    .cinema-hero h1 { font-size: 2.2rem; letter-spacing: 3px; }
+    .reveal-text { font-size: 1.2rem; letter-spacing: 3px; }
     .hud-container { padding: 0 20px; }
     .hud-links { gap: 20px; }
 }
 
 @media (max-width: 768px) {
+    /* MOBILE FIX: Keeps Navigation Fully Visible on Phones */
+    .hud-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+    }
+    .hud-links { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 12px; 
+    }
+    .hud-link {
+        font-size: 0.65rem;
+    }
+
     .matrix-grid { grid-template-columns: 1fr; }
-    .hud-links { display: none; } /* Standard technical architectural cutoff for adaptive screens */
     .interactive-matrix-section { padding: 100px 20px; }
     .quantum-form { padding: 35px 20px; }
+    .logo-subtitle .logo-text { letter-spacing: 4px; }
 }
+
