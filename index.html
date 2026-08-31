@@ -11,13 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- CDelta one-time institutional brand ident -->
+    <div class="brand-ident" aria-hidden="true">
+        <div class="brand-ident-stage">
+            <img src="assets/img/logo.png" alt="" class="brand-ident-logo">
+        </div>
+    </div>
+
 
     <canvas id="constellation-canvas"></canvas>
 
     <nav class="hud-navbar" id="hud-nav">
         <div class="hud-container">
             <a href="index.html" class="hud-logo-frame">
-                <img src="assets/img/logo.png" alt="Constellation Delta Star" class="hud-logo-img star-glow">
+                <img src="assets/img/logo.png" alt="Constellation Delta Star" class="hud-logo-img">
             </a>
             <div class="hud-links">
                 <a href="about.html" class="hud-link">About Us</a>
@@ -206,6 +213,22 @@
             });
         }, { threshold: 0.1 });
         nodes.forEach(node => observer.observe(node));
-    </script>
+    
+        /*
+         * CDelta brand-ident controller.
+         * The constellation background animation is not modified.
+         */
+        window.addEventListener('load', function () {
+            document.documentElement.classList.add('brand-ident-active');
+
+            window.setTimeout(function () {
+                document.documentElement.classList.add('brand-ident-handoff');
+            }, 2000);
+
+            window.setTimeout(function () {
+                document.documentElement.classList.add('brand-ident-complete');
+            }, 2850);
+        });
+</script>
 </body>
 </html>
