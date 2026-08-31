@@ -11,10 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <!-- CDelta one-time institutional brand ident -->
-    <div class="brand-ident" aria-hidden="true">
+    <div class="brand-ident" id="brand-ident" aria-hidden="true">
         <div class="brand-ident-stage">
-            <img src="assets/img/logo.png" alt="" class="brand-ident-logo">
+            <img src="assets/img/logo.png" alt="" class="brand-ident-logo" id="brand-ident-logo">
         </div>
     </div>
 
@@ -24,7 +25,7 @@
     <nav class="hud-navbar" id="hud-nav">
         <div class="hud-container">
             <a href="index.html" class="hud-logo-frame">
-                <img src="assets/img/logo.png" alt="Constellation Delta Star" class="hud-logo-img">
+                <img src="assets/img/logo.png" alt="Constellation Delta Star" class="hud-logo-img" id="nav-logo">
             </a>
             <div class="hud-links">
                 <a href="about.html" class="hud-link">About Us</a>
@@ -214,21 +215,98 @@
         }, { threshold: 0.1 });
         nodes.forEach(node => observer.observe(node));
     
-        /*
-         * CDelta brand-ident controller.
-         * The constellation background animation is not modified.
-         */
-        window.addEventListener('load', function () {
-            document.documentElement.classList.add('brand-ident-active');
+        // CDelta Institutional Brand Ident
+        // This animation is independent of the existing constellation canvas.
+        (function () {
+            const brandIdent = document.getElementById('brand-ident');
+            const brandLogo = document.getElementById('brand-ident-logo');
+            const navLogo = document.getElementById('nav-logo');
 
-            window.setTimeout(function () {
-                document.documentElement.classList.add('brand-ident-handoff');
-            }, 2000);
+            if (!brandIdent || !brandLogo || !navLogo) return;
 
-            window.setTimeout(function () {
-                document.documentElement.classList.add('brand-ident-complete');
-            }, 2850);
-        });
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function finishImmediately() {
+                brandIdent.classList.add('is-hidden');
+                navLogo.classList.add('logo-ready');
+            }
+
+            function runBrandIdent() {
+                if (reducedMotion) {
+                    finishImmediately();
+                    return;
+                }
+
+                const target = navLogo.getBoundingClientRect();
+                const start = brandLogo.getBoundingClientRect();
+
+                const moveX = (target.left + target.width / 2) - (start.left + start.width / 2);
+                const moveY = (target.top + target.height / 2) - (start.top + start.height / 2);
+                const scale = Math.max(0.01, Math.min(1, target.width / start.width));
+
+                navLogo.classList.remove('logo-ready');
+
+                // One complete 2.4-second institutional 3D revolution.
+                brandLogo.animate(
+                    [
+                        { transform: 'rotateY(0deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.25))' },
+                        { transform: 'rotateY(90deg) scale(1.025)', filter: 'drop-shadow(0 0 18px rgba(229,193,88,.55))' },
+                        { transform: 'rotateY(180deg) scale(1.04)', filter: 'drop-shadow(0 0 24px rgba(229,193,88,.70))' },
+                        { transform: 'rotateY(270deg) scale(1.025)', filter: 'drop-shadow(0 0 18px rgba(229,193,88,.55))' },
+                        { transform: 'rotateY(360deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.30))' }
+                    ],
+                    {
+                        duration: 2400,
+                        easing: 'cubic-bezier(.45,.05,.55,.95)',
+                        fill: 'forwards'
+                    }
+                ).finished
+                .then(function () {
+                    // Very short front-facing settle (0.2 seconds).
+                    return brandLogo.animate(
+                        [
+                            { transform: 'rotateY(360deg) scale(1)' },
+                            { transform: 'rotateY(360deg) scale(1.015)' },
+                            { transform: 'rotateY(360deg) scale(1)' }
+                        ],
+                        { duration: 200, easing: 'ease-out', fill: 'forwards' }
+                    ).finished;
+                })
+                .then(function () {
+                    // Same emblem now travels to the actual measured nav position (0.8 seconds).
+                    return brandLogo.animate(
+                        [
+                            {
+                                transform: 'translate3d(0,0,0) rotateY(360deg) scale(1)',
+                                filter: 'drop-shadow(0 0 8px rgba(229,193,88,.30))'
+                            },
+                            {
+                                transform: 'translate3d(' + moveX + 'px,' + moveY + 'px,0) rotateY(360deg) scale(' + scale + ')',
+                                filter: 'drop-shadow(0 0 8px rgba(229,193,88,.25))'
+                            }
+                        ],
+                        {
+                            duration: 800,
+                            easing: 'cubic-bezier(.65,0,.35,1)',
+                            fill: 'forwards'
+                        }
+                    ).finished;
+                })
+                .then(function () {
+                    navLogo.classList.add('logo-ready');
+                    brandIdent.classList.add('is-hidden');
+                })
+                .catch(finishImmediately);
+            }
+
+            if (document.readyState === 'complete') {
+                window.setTimeout(runBrandIdent, 80);
+            } else {
+                window.addEventListener('load', function () {
+                    window.setTimeout(runBrandIdent, 80);
+                }, { once: true });
+            }
+        }());
 </script>
 </body>
 </html>
