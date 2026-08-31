@@ -58,10 +58,7 @@ body {
     padding: 0 40px;
 }
 
-.hud-logo-frame {
-    display: flex;
-    align-items: center;
-}
+.hud-logo-frame { display: flex; align-items: center; }
 
 .hud-logo-img {
     width: auto;
@@ -72,9 +69,7 @@ body {
     transition: opacity 0.35s ease;
 }
 
-.hud-logo-img.logo-ready {
-    opacity: 1;
-}
+.hud-logo-img.logo-ready { opacity: 1; }
 
 .hud-links {
     display: flex;
@@ -107,19 +102,17 @@ body {
 }
 
 /* ==========================================================================
-   2A. CDELTA BRAND IDENT — CENTER ONLY, THEN HANDOFF
+   2A. CDELTA BRAND IDENT — EXACT CENTER + CONTROLLED HANDOFF
    ========================================================================== */
 
-/* During the intro the constellation canvas remains visible, but all
-   website UI/content is withheld. */
 body.brand-intro-running .hud-navbar,
 body.brand-intro-running .cinema-hero,
 body.brand-intro-running .content-stream,
 body.brand-intro-running .matrix-footer {
-    visibility: hidden;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
-/* Reveal the actual site only after the emblem reaches the nav position. */
 body:not(.brand-intro-running) .cinema-hero,
 body:not(.brand-intro-running) .content-stream,
 body:not(.brand-intro-running) .matrix-footer {
@@ -127,21 +120,10 @@ body:not(.brand-intro-running) .matrix-footer {
 }
 
 @keyframes cdeltaSiteReveal {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/*
- * OUTER MOTION LAYER
- * Its center is locked to the exact center of the viewport.
- * It is the ONLY layer that moves during the handoff.
- */
 .brand-ident {
     position: fixed;
     inset: 0;
@@ -153,22 +135,16 @@ body:not(.brand-intro-running) .matrix-footer {
 
 .brand-ident-motion {
     position: fixed;
-    left: 50%;
-    top: 50%;
+    left: 50vw;
+    top: 50vh;
     width: 220px;
     height: 220px;
-    margin-left: -110px;
-    margin-top: -110px;
-    transform: translate3d(0,0,0) scale(1);
+    margin: 0;
+    transform: translate(-50%, -50%);
     transform-origin: center center;
     will-change: transform;
 }
 
-/*
- * ROTATION LAYER
- * Never moves from the center. This is what eliminates the bad alignment
- * seen in the previous version.
- */
 .brand-ident-rotation {
     position: absolute;
     inset: 0;
@@ -201,30 +177,11 @@ body:not(.brand-intro-running) .matrix-footer {
     .brand-ident-motion {
         width: 170px;
         height: 170px;
-        margin-left: -85px;
-        margin-top: -85px;
     }
 
     .brand-ident-logo {
         width: 170px;
         height: 170px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    body.brand-intro-running .hud-navbar,
-    body.brand-intro-running .cinema-hero,
-    body.brand-intro-running .content-stream,
-    body.brand-intro-running .matrix-footer {
-        visibility: visible;
-    }
-
-    .brand-ident {
-        display: none;
-    }
-
-    .hud-logo-img {
-        opacity: 1;
     }
 }
 
