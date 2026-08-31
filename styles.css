@@ -69,7 +69,7 @@ body {
     object-fit: contain;
     display: block;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.35s ease;
 }
 
 .hud-logo-img.logo-ready {
@@ -107,33 +107,62 @@ body {
 }
 
 /* ==========================================================================
-   2A. CDELTA ONE-TIME CENTER BRAND IDENT
+   2A. ONE-TIME CENTER CDELTA BRAND IDENT
    ========================================================================== */
+
+/* During the opening, ONLY the existing constellation canvas and the
+   center emblem are visible. All site elements are withheld. */
+body.brand-intro-running .hud-navbar,
+body.brand-intro-running .cinema-hero,
+body.brand-intro-running .content-stream,
+body.brand-intro-running .matrix-footer {
+    visibility: hidden;
+}
+
+body:not(.brand-intro-running) .cinema-hero,
+body:not(.brand-intro-running) .content-stream,
+body:not(.brand-intro-running) .matrix-footer {
+    animation: cdeltaSiteReveal 0.65s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+@keyframes cdeltaSiteReveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .brand-ident {
     position: fixed;
     inset: 0;
     z-index: 6000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     pointer-events: none;
-    background: transparent;
+    visibility: visible;
+    opacity: 1;
 }
 
 .brand-ident-stage {
-    width: 220px;
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1200px;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 1400px;
+    transform-style: preserve-3d;
 }
 
 .brand-ident-logo {
+    position: fixed;
+    left: 50%;
+    top: 50%;
     width: 220px;
     height: 220px;
     object-fit: contain;
     display: block;
+    transform: translate(-50%, -50%) rotateY(0deg) scale(1);
     transform-origin: center center;
     transform-style: preserve-3d;
     backface-visibility: visible;
@@ -147,7 +176,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .brand-ident-stage,
     .brand-ident-logo {
         width: 170px;
         height: 170px;
@@ -155,6 +183,13 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    body.brand-intro-running .hud-navbar,
+    body.brand-intro-running .cinema-hero,
+    body.brand-intro-running .content-stream,
+    body.brand-intro-running .matrix-footer {
+        visibility: visible;
+    }
+
     .brand-ident {
         display: none;
     }

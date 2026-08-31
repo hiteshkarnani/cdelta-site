@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="brand-intro-running">
 
     <!-- CDelta one-time institutional brand ident -->
     <div class="brand-ident" id="brand-ident" aria-hidden="true">
@@ -216,7 +216,8 @@
         nodes.forEach(node => observer.observe(node));
     
         // CDelta Institutional Brand Ident
-        // This animation is independent of the existing constellation canvas.
+        // Only the background constellation and center emblem are visible
+        // until the emblem reaches the navigation position.
         (function () {
             const brandIdent = document.getElementById('brand-ident');
             const brandLogo = document.getElementById('brand-ident-logo');
@@ -226,19 +227,22 @@
 
             const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            function finishImmediately() {
-                brandIdent.classList.add('is-hidden');
+            function revealSite() {
+                document.body.classList.remove('brand-intro-running');
                 navLogo.classList.add('logo-ready');
+                brandIdent.classList.add('is-hidden');
             }
 
             function runBrandIdent() {
                 if (reducedMotion) {
-                    finishImmediately();
+                    revealSite();
                     return;
                 }
 
-                const target = navLogo.getBoundingClientRect();
+                // brandLogo is exactly centered by CSS. The nav destination is
+                // measured from the real rendered logo, so alignment is responsive.
                 const start = brandLogo.getBoundingClientRect();
+                const target = navLogo.getBoundingClientRect();
 
                 const moveX = (target.left + target.width / 2) - (start.left + start.width / 2);
                 const moveY = (target.top + target.height / 2) - (start.top + start.height / 2);
@@ -246,64 +250,56 @@
 
                 navLogo.classList.remove('logo-ready');
 
-                // One complete 2.4-second institutional 3D revolution.
+                // 2.4 seconds: one full 3D vertical-axis revolution.
                 brandLogo.animate(
                     [
-                        { transform: 'rotateY(0deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.25))' },
-                        { transform: 'rotateY(90deg) scale(1.025)', filter: 'drop-shadow(0 0 18px rgba(229,193,88,.55))' },
-                        { transform: 'rotateY(180deg) scale(1.04)', filter: 'drop-shadow(0 0 24px rgba(229,193,88,.70))' },
-                        { transform: 'rotateY(270deg) scale(1.025)', filter: 'drop-shadow(0 0 18px rgba(229,193,88,.55))' },
-                        { transform: 'rotateY(360deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.30))' }
+                        { transform: 'translate(-50%, -50%) rotateY(0deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.24))' },
+                        { transform: 'translate(-50%, -50%) rotateY(90deg) scale(1.02)', filter: 'drop-shadow(0 0 18px rgba(229,193,88,.48))' },
+                        { transform: 'translate(-50%, -50%) rotateY(180deg) scale(1.04)', filter: 'drop-shadow(0 0 22px rgba(229,193,88,.60))' },
+                        { transform: 'translate(-50%, -50%) rotateY(270deg) scale(1.02)', filter: 'drop-shadow(0 0 18px rgba(229,193,88,.48))' },
+                        { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.28))' }
                     ],
-                    {
-                        duration: 2400,
-                        easing: 'cubic-bezier(.45,.05,.55,.95)',
-                        fill: 'forwards'
-                    }
+                    { duration: 2400, easing: 'cubic-bezier(.45,.05,.55,.95)', fill: 'forwards' }
                 ).finished
                 .then(function () {
-                    // Very short front-facing settle (0.2 seconds).
+                    // 0.2 seconds: brief front-facing settle.
                     return brandLogo.animate(
                         [
-                            { transform: 'rotateY(360deg) scale(1)' },
-                            { transform: 'rotateY(360deg) scale(1.015)' },
-                            { transform: 'rotateY(360deg) scale(1)' }
+                            { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1)' },
+                            { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1.015)' },
+                            { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1)' }
                         ],
                         { duration: 200, easing: 'ease-out', fill: 'forwards' }
                     ).finished;
                 })
                 .then(function () {
-                    // Same emblem now travels to the actual measured nav position (0.8 seconds).
+                    // 0.8 seconds: same emblem shrinks and travels to the exact nav position.
                     return brandLogo.animate(
                         [
+                            { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1)' },
                             {
-                                transform: 'translate3d(0,0,0) rotateY(360deg) scale(1)',
-                                filter: 'drop-shadow(0 0 8px rgba(229,193,88,.30))'
-                            },
-                            {
-                                transform: 'translate3d(' + moveX + 'px,' + moveY + 'px,0) rotateY(360deg) scale(' + scale + ')',
-                                filter: 'drop-shadow(0 0 8px rgba(229,193,88,.25))'
+                                transform:
+                                    'translate(calc(-50% + ' + moveX + 'px), calc(-50% + ' + moveY + 'px)) ' +
+                                    'rotateY(360deg) scale(' + scale + ')'
                             }
                         ],
-                        {
-                            duration: 800,
-                            easing: 'cubic-bezier(.65,0,.35,1)',
-                            fill: 'forwards'
-                        }
+                        { duration: 800, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' }
                     ).finished;
                 })
-                .then(function () {
-                    navLogo.classList.add('logo-ready');
-                    brandIdent.classList.add('is-hidden');
-                })
-                .catch(finishImmediately);
+                .then(revealSite)
+                .catch(revealSite);
             }
 
+            // Wait for final layout, then measure the actual destination.
             if (document.readyState === 'complete') {
-                window.setTimeout(runBrandIdent, 80);
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(runBrandIdent);
+                });
             } else {
                 window.addEventListener('load', function () {
-                    window.setTimeout(runBrandIdent, 80);
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(runBrandIdent);
+                    });
                 }, { once: true });
             }
         }());
