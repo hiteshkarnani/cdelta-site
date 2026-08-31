@@ -33,6 +33,153 @@ body {
     pointer-events: none;
 }
 
+
+/* ==========================================================================
+   BRAND IDENT — CENTERED INSTITUTIONAL EMBLEM REVEAL
+   ========================================================================== */
+
+/* The background constellation canvas is completely independent of this. */
+.brand-ident {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 1;
+    visibility: visible;
+    background: transparent;
+}
+
+.brand-ident-stage {
+    width: 190px;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+}
+
+.brand-ident-logo {
+    width: 190px;
+    height: 190px;
+    object-fit: contain;
+    display: block;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    animation: cdeltaBrandIdent 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) 1 both;
+    will-change: transform, filter, opacity;
+}
+
+/*
+   CENTER -> 360° Y-AXIS REVOLUTION -> FRONT-FACING
+   Then the completed ident hands off to the normal top-left logo.
+*/
+@keyframes cdeltaBrandIdent {
+    0% {
+        transform: rotateY(0deg) scale(1);
+        filter: drop-shadow(0 0 8px rgba(229, 193, 88, 0.30));
+        opacity: 0;
+    }
+
+    6% {
+        transform: rotateY(0deg) scale(1);
+        filter: drop-shadow(0 0 14px rgba(229, 193, 88, 0.45));
+        opacity: 1;
+    }
+
+    25% {
+        transform: rotateY(90deg) scale(1.02);
+        filter: drop-shadow(0 0 20px rgba(229, 193, 88, 0.55));
+        opacity: 1;
+    }
+
+    50% {
+        transform: rotateY(180deg) scale(1.04);
+        filter: drop-shadow(0 0 24px rgba(229, 193, 88, 0.70));
+        opacity: 1;
+    }
+
+    75% {
+        transform: rotateY(270deg) scale(1.02);
+        filter: drop-shadow(0 0 20px rgba(229, 193, 88, 0.55));
+        opacity: 1;
+    }
+
+    94% {
+        transform: rotateY(360deg) scale(1);
+        filter: drop-shadow(0 0 12px rgba(229, 193, 88, 0.40));
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateY(360deg) scale(1);
+        filter: drop-shadow(0 0 8px rgba(229, 193, 88, 0.30));
+        opacity: 1;
+    }
+}
+
+/* After the 2-second revolution, the center emblem travels to the
+   navigation position while shrinking. The destination logo is hidden
+   until the handoff completes. */
+.brand-ident-complete .brand-ident {
+    animation: cdeltaIdentExit 0.85s cubic-bezier(0.65, 0, 0.35, 1) 1 both;
+}
+
+.brand-ident-complete .brand-ident-logo {
+    animation: none;
+    transform: rotateY(360deg) scale(1);
+    filter: drop-shadow(0 0 8px rgba(229, 193, 88, 0.30));
+}
+
+@keyframes cdeltaIdentExit {
+    0% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* The small navigation emblem appears only after the center ident has
+   completed its handoff, preventing a second logo from showing early. */
+.hud-logo-img {
+    opacity: 0;
+    transition: opacity 0.18s ease;
+}
+
+.brand-ident-complete .hud-logo-img {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brand-ident-logo {
+        animation: none;
+        transform: rotateY(0deg);
+        opacity: 1;
+        filter: drop-shadow(0 0 8px rgba(229, 193, 88, 0.30));
+    }
+
+    .brand-ident {
+        animation: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .hud-logo-img {
+        opacity: 1;
+    }
+}
+
 /* ==========================================================================
    2. MODERN MINI-HUD NAVIGATION BAR
    ========================================================================== */
@@ -66,6 +213,7 @@ body {
    The existing gold constellation canvas animation is NOT modified.
    ========================================================================== */
 
+/* Navigation logo: static after the brand ident handoff. */
 .hud-logo-frame {
     display: flex;
     align-items: center;
@@ -78,14 +226,8 @@ body {
     height: 38px;
     object-fit: contain;
     display: block;
-    transform-origin: center center;
-    transform-style: preserve-3d;
-    backface-visibility: visible;
-    -webkit-backface-visibility: visible;
-
-    /* Keep the destination logo hidden until the center ident arrives. */
+    transform: none;
     opacity: 0;
-    animation: navLogoReveal 0.25s ease-out 2.85s forwards;
 }
 
 /*
