@@ -14,8 +14,10 @@
 
     <!-- CDelta one-time institutional brand ident -->
     <div class="brand-ident" id="brand-ident" aria-hidden="true">
-        <div class="brand-ident-stage">
-            <img src="assets/img/logo.png" alt="" class="brand-ident-logo" id="brand-ident-logo">
+        <div class="brand-ident-motion">
+            <div class="brand-ident-rotation">
+                <img src="assets/img/logo.png" alt="" class="brand-ident-logo" id="brand-ident-logo">
+            </div>
         </div>
     </div>
 
@@ -216,91 +218,120 @@
         nodes.forEach(node => observer.observe(node));
     
         // CDelta Institutional Brand Ident
-        // Only the background constellation and center emblem are visible
-        // until the emblem reaches the navigation position.
+        // The constellation background remains visible. Site UI/text is withheld
+        // until the emblem reaches the real navigation-logo position.
         (function () {
-            const brandIdent = document.getElementById('brand-ident');
-            const brandLogo = document.getElementById('brand-ident-logo');
+            const ident = document.getElementById('brand-ident');
+            const motion = document.querySelector('.brand-ident-motion');
+            const logo = document.getElementById('brand-ident-logo');
             const navLogo = document.getElementById('nav-logo');
 
-            if (!brandIdent || !brandLogo || !navLogo) return;
+            if (!ident || !motion || !logo || !navLogo) return;
 
             const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             function revealSite() {
                 document.body.classList.remove('brand-intro-running');
                 navLogo.classList.add('logo-ready');
-                brandIdent.classList.add('is-hidden');
+                ident.classList.add('is-hidden');
             }
 
-            function runBrandIdent() {
+            function run() {
                 if (reducedMotion) {
                     revealSite();
                     return;
                 }
 
-                // brandLogo is exactly centered by CSS. The nav destination is
-                // measured from the real rendered logo, so alignment is responsive.
-                const start = brandLogo.getBoundingClientRect();
-                const target = navLogo.getBoundingClientRect();
+                /*
+                 * The rotation layer NEVER moves.
+                 * It is anchored exactly at 50vw / 50vh.
+                 * Only the outer motion layer travels after the revolution.
+                 */
+                const startRect = motion.getBoundingClientRect();
+                const destination = navLogo.getBoundingClientRect();
 
-                const moveX = (target.left + target.width / 2) - (start.left + start.width / 2);
-                const moveY = (target.top + target.height / 2) - (start.top + start.height / 2);
-                const scale = Math.max(0.01, Math.min(1, target.width / start.width));
+                const startCenterX = startRect.left + startRect.width / 2;
+                const startCenterY = startRect.top + startRect.height / 2;
+                const destinationCenterX = destination.left + destination.width / 2;
+                const destinationCenterY = destination.top + destination.height / 2;
+
+                const deltaX = destinationCenterX - startCenterX;
+                const deltaY = destinationCenterY - startCenterY;
+                const finalScale = Math.min(
+                    1,
+                    destination.width / startRect.width,
+                    destination.height / startRect.height
+                );
 
                 navLogo.classList.remove('logo-ready');
 
-                // 2.4 seconds: one full 3D vertical-axis revolution.
-                brandLogo.animate(
+                // PHASE 1: exact-center 2.4 second Y-axis revolution.
+                logo.animate(
                     [
-                        { transform: 'translate(-50%, -50%) rotateY(0deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.24))' },
-                        { transform: 'translate(-50%, -50%) rotateY(90deg) scale(1.02)', filter: 'drop-shadow(0 0 18px rgba(229,193,88,.48))' },
-                        { transform: 'translate(-50%, -50%) rotateY(180deg) scale(1.04)', filter: 'drop-shadow(0 0 22px rgba(229,193,88,.60))' },
-                        { transform: 'translate(-50%, -50%) rotateY(270deg) scale(1.02)', filter: 'drop-shadow(0 0 18px rgba(229,193,88,.48))' },
-                        { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.28))' }
+                        { transform: 'rotateY(0deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.22))' },
+                        { transform: 'rotateY(90deg) scale(1.02)', filter: 'drop-shadow(0 0 17px rgba(229,193,88,.45))' },
+                        { transform: 'rotateY(180deg) scale(1.04)', filter: 'drop-shadow(0 0 22px rgba(229,193,88,.58))' },
+                        { transform: 'rotateY(270deg) scale(1.02)', filter: 'drop-shadow(0 0 17px rgba(229,193,88,.45))' },
+                        { transform: 'rotateY(360deg) scale(1)', filter: 'drop-shadow(0 0 8px rgba(229,193,88,.28))' }
                     ],
-                    { duration: 2400, easing: 'cubic-bezier(.45,.05,.55,.95)', fill: 'forwards' }
+                    {
+                        duration: 2400,
+                        easing: 'cubic-bezier(.45,.05,.55,.95)',
+                        fill: 'forwards'
+                    }
                 ).finished
                 .then(function () {
-                    // 0.2 seconds: brief front-facing settle.
-                    return brandLogo.animate(
+                    // PHASE 2: front-facing settle.
+                    return logo.animate(
                         [
-                            { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1)' },
-                            { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1.015)' },
-                            { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1)' }
+                            { transform: 'rotateY(360deg) scale(1)' },
+                            { transform: 'rotateY(360deg) scale(1.015)' },
+                            { transform: 'rotateY(360deg) scale(1)' }
                         ],
-                        { duration: 200, easing: 'ease-out', fill: 'forwards' }
+                        {
+                            duration: 200,
+                            easing: 'ease-out',
+                            fill: 'forwards'
+                        }
                     ).finished;
                 })
                 .then(function () {
-                    // 0.8 seconds: same emblem shrinks and travels to the exact nav position.
-                    return brandLogo.animate(
+                    /*
+                     * PHASE 3: ONLY THE OUTER MOTION LAYER moves.
+                     * This keeps the logo's center stable during rotation and
+                     * makes the center -> top-left travel mathematically clean.
+                     */
+                    return motion.animate(
                         [
-                            { transform: 'translate(-50%, -50%) rotateY(360deg) scale(1)' },
                             {
-                                transform:
-                                    'translate(calc(-50% + ' + moveX + 'px), calc(-50% + ' + moveY + 'px)) ' +
-                                    'rotateY(360deg) scale(' + scale + ')'
+                                transform: 'translate3d(0, 0, 0) scale(1)'
+                            },
+                            {
+                                transform: 'translate3d(' + deltaX + 'px, ' + deltaY + 'px, 0) scale(' + finalScale + ')'
                             }
                         ],
-                        { duration: 800, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' }
+                        {
+                            duration: 800,
+                            easing: 'cubic-bezier(.65,0,.35,1)',
+                            fill: 'forwards'
+                        }
                     ).finished;
                 })
                 .then(revealSite)
                 .catch(revealSite);
             }
 
-            // Wait for final layout, then measure the actual destination.
-            if (document.readyState === 'complete') {
+            function start() {
+                // Wait for two layout frames so the actual nav destination is final.
                 requestAnimationFrame(function () {
-                    requestAnimationFrame(runBrandIdent);
+                    requestAnimationFrame(run);
                 });
+            }
+
+            if (document.readyState === 'complete') {
+                start();
             } else {
-                window.addEventListener('load', function () {
-                    requestAnimationFrame(function () {
-                        requestAnimationFrame(runBrandIdent);
-                    });
-                }, { once: true });
+                window.addEventListener('load', start, { once: true });
             }
         }());
 </script>
