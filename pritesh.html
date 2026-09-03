@@ -1,23 +1,859 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contact Pritesh Karnani</title>
-<style>
-body{margin:0;background:#062d23;color:#f4e7b0;font-family:Arial,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center}
-.card{width:min(88%,420px);text-align:center;padding:36px 24px;border:1px solid #b9a35a;border-radius:24px;box-sizing:border-box}
-h1{font-family:Georgia,serif;font-size:28px;margin:0 0 8px}
-p{margin:0 0 28px;color:#d8d0ad}
-a{display:block;text-decoration:none;padding:16px;margin:12px 0;border-radius:12px;background:#f4e7b0;color:#062d23;font-weight:700;font-size:17px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Pritesh Karnani | Constellation-Delta Group</title>
+
+    <link rel="icon"
+          type="image/x-icon"
+          href="assets/img/favicon.ico">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           CONSTELLATION-DELTA DIGITAL CONTACT CARD
+           ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(37, 75, 63, 0.30),
+                    transparent 38%
+                ),
+                radial-gradient(
+                    circle at 15% 85%,
+                    rgba(20, 58, 48, 0.30),
+                    transparent 40%
+                ),
+                linear-gradient(
+                    145deg,
+                    #071613 0%,
+                    #0a201b 45%,
+                    #06110f 100%
+                );
+
+            color: #f5f1df;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        /* =====================================================
+           CONSTELLATION CANVAS
+           ===================================================== */
+
+        #constellation-canvas {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* =====================================================
+           MAIN CARD
+           ===================================================== */
+
+        .contact-page {
+            position: relative;
+
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            z-index: 2;
+        }
+
+        .contact-card {
+
+            width: min(440px, 100%);
+
+            position: relative;
+
+            padding: 48px 34px 40px;
+
+            text-align: center;
+
+            border: 1px solid rgba(229, 193, 88, 0.55);
+
+            border-radius: 26px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(12, 35, 29, 0.88),
+                    rgba(5, 18, 15, 0.94)
+                );
+
+            box-shadow:
+                0 0 45px rgba(0, 0, 0, 0.45),
+                inset 0 0 35px rgba(229, 193, 88, 0.025);
+
+            backdrop-filter: blur(12px);
+
+            animation: cardReveal 1s ease both;
+        }
+
+        /* Elegant gold frame */
+
+        .contact-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 9px;
+
+            border: 1px solid rgba(229, 193, 88, 0.13);
+
+            border-radius: 19px;
+
+            pointer-events: none;
+        }
+
+        /* =====================================================
+           LOGO
+           ===================================================== */
+
+        .contact-logo {
+
+            width: 92px;
+            height: 92px;
+
+            object-fit: contain;
+
+            display: block;
+
+            margin: 0 auto 24px;
+
+            filter:
+                drop-shadow(
+                    0 0 13px rgba(229, 193, 88, 0.35)
+                );
+
+            animation:
+                logoGlow 3s ease-in-out infinite;
+        }
+
+        /* =====================================================
+           BRAND
+           ===================================================== */
+
+        .brand-name {
+
+            color: #f7f2df;
+
+            font-size: 20px;
+
+            font-weight: 400;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 7px;
+
+            text-transform: uppercase;
+        }
+
+        .brand-group {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            color: #e5c158;
+
+            font-size: 10px;
+
+            font-weight: 500;
+
+            letter-spacing: 4px;
+        }
+
+        .brand-group::before,
+        .brand-group::after {
+
+            content: "";
+
+            width: 42px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    rgba(229, 193, 88, 0.8)
+                );
+        }
+
+        .brand-group::after {
+
+            background:
+                linear-gradient(
+                    to left,
+                    transparent,
+                    rgba(229, 193, 88, 0.8)
+                );
+        }
+
+        /* =====================================================
+           PERSON
+           ===================================================== */
+
+        .person-section {
+
+            margin-top: 38px;
+        }
+
+        .person-name {
+
+            color: #ffffff;
+
+            font-size: clamp(27px, 7vw, 34px);
+
+            font-weight: 500;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 10px;
+        }
+
+        .person-role {
+
+            color: #e5c158;
+
+            font-size: 11px;
+
+            font-weight: 400;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .person-line {
+
+            width: 55px;
+
+            height: 1px;
+
+            margin: 21px auto 26px;
+
+            background: #e5c158;
+
+            opacity: 0.7;
+        }
+
+        /* =====================================================
+           CONTACT DETAILS
+           ===================================================== */
+
+        .contact-details {
+
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+
+            color: rgba(245, 241, 223, 0.70);
+
+            font-size: 12px;
+
+            letter-spacing: 0.8px;
+
+            margin: 8px 0;
+
+            word-break: break-word;
+        }
+
+        /* =====================================================
+           ACTION BUTTONS
+           ===================================================== */
+
+        .contact-actions {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 13px;
+
+            width: 100%;
+        }
+
+        .contact-button {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            width: 100%;
+
+            min-height: 55px;
+
+            padding: 15px 20px;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 12px;
+
+            font-weight: 500;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+
+            overflow: hidden;
+        }
+
+        /* Gold primary button */
+
+        .call-button {
+
+            color: #091510;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e5c158,
+                    #f1d77d
+                );
+
+            box-shadow:
+                0 8px 25px rgba(229, 193, 88, 0.16);
+        }
+
+        /* Green secondary button */
+
+        .email-button {
+
+            color: #e5c158;
+
+            background:
+                rgba(229, 193, 88, 0.035);
+
+            border: 1px solid rgba(229, 193, 88, 0.48);
+        }
+
+        .contact-button:hover {
+
+            transform: translateY(-3px);
+        }
+
+        .call-button:hover {
+
+            box-shadow:
+                0 12px 30px rgba(229, 193, 88, 0.27);
+        }
+
+        .email-button:hover {
+
+            background:
+                rgba(229, 193, 88, 0.09);
+
+            box-shadow:
+                0 8px 25px rgba(229, 193, 88, 0.10);
+        }
+
+        .contact-button:active {
+
+            transform: translateY(0);
+        }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .card-footer {
+
+            margin-top: 32px;
+
+            color: rgba(229, 193, 88, 0.42);
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        /* =====================================================
+           ANIMATIONS
+           ===================================================== */
+
+        @keyframes cardReveal {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes logoGlow {
+
+            0%,
+            100% {
+                filter:
+                    drop-shadow(
+                        0 0 10px rgba(229, 193, 88, 0.22)
+                    );
+            }
+
+            50% {
+                filter:
+                    drop-shadow(
+                        0 0 19px rgba(229, 193, 88, 0.42)
+                    );
+            }
+        }
+
+        /* =====================================================
+           SMALL MOBILE DEVICES
+           ===================================================== */
+
+        @media (max-height: 650px) {
+
+            .contact-card {
+
+                padding-top: 28px;
+                padding-bottom: 25px;
+            }
+
+            .contact-logo {
+
+                width: 70px;
+                height: 70px;
+
+                margin-bottom: 15px;
+            }
+
+            .person-section {
+
+                margin-top: 25px;
+            }
+
+            .person-line {
+
+                margin: 15px auto 18px;
+            }
+
+            .contact-details {
+
+                margin-bottom: 20px;
+            }
+
+            .card-footer {
+
+                margin-top: 20px;
+            }
+        }
+
+        /* =====================================================
+           VERY SMALL WIDTH
+           ===================================================== */
+
+        @media (max-width: 360px) {
+
+            .contact-page {
+
+                padding: 15px;
+            }
+
+            .contact-card {
+
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .brand-name {
+
+                font-size: 17px;
+                letter-spacing: 3px;
+            }
+
+            .person-name {
+
+                font-size: 26px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
-<div class="card">
-<h1>Pritesh Karnani</h1>
-<p>CEO & Co-Founder</p>
-<a href="tel:+917878734774">📞 Call</a>
-<a href="mailto:pritesh@cdelta.in">✉️ Email</a>
-</div>
+
+    <!-- =====================================================
+         MOVING GOLD CONSTELLATION BACKGROUND
+         ===================================================== -->
+
+    <canvas id="constellation-canvas"></canvas>
+
+
+    <!-- =====================================================
+         CONTACT CARD
+         ===================================================== -->
+
+    <main class="contact-page">
+
+        <section class="contact-card">
+
+            <!-- ORIGINAL CONSTELLATION-DELTA LOGO -->
+            <img
+                src="assets/img/logo.png"
+                alt="Constellation Delta Star"
+                class="contact-logo"
+            >
+
+
+            <!-- BRAND -->
+
+            <div class="brand-name">
+                CONSTELLATION-DELTA
+            </div>
+
+            <div class="brand-group">
+                <span>GROUP</span>
+            </div>
+
+
+            <!-- PERSON -->
+
+            <div class="person-section">
+
+                <h1 class="person-name">
+                    Pritesh Karnani
+                </h1>
+
+                <div class="person-role">
+                    Constellation-Delta Group
+                </div>
+
+                <div class="person-line"></div>
+
+            </div>
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="contact-details">
+
+                <div class="contact-detail">
+                    +91 7878734774
+                </div>
+
+                <div class="contact-detail">
+                    pritesh@cdelta.in
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="contact-actions">
+
+                <!-- CALL -->
+
+                <a
+                    href="tel:+917878734774"
+                    class="contact-button call-button"
+                    aria-label="Call Pritesh Karnani"
+                >
+                    <span>☎</span>
+                    <span>Call Pritesh</span>
+                </a>
+
+
+                <!-- EMAIL -->
+
+                <a
+                    href="mailto:pritesh@cdelta.in"
+                    class="contact-button email-button"
+                    aria-label="Email Pritesh Karnani"
+                >
+                    <span>✉</span>
+                    <span>Email Pritesh</span>
+                </a>
+
+            </div>
+
+
+            <div class="card-footer">
+                NAVIGATING GLOBAL FRONTIERS
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         CONSTELLATION ENGINE
+         ===================================================== -->
+
+    <script>
+
+        const canvas =
+            document.getElementById("constellation-canvas");
+
+        const ctx =
+            canvas.getContext("2d");
+
+        let particles = [];
+
+        const particleCount = 75;
+
+
+        function resizeCanvas() {
+
+            const dpr =
+                Math.min(window.devicePixelRatio || 1, 2);
+
+            canvas.width =
+                window.innerWidth * dpr;
+
+            canvas.height =
+                window.innerHeight * dpr;
+
+            canvas.style.width =
+                window.innerWidth + "px";
+
+            canvas.style.height =
+                window.innerHeight + "px";
+
+            ctx.setTransform(
+                dpr,
+                0,
+                0,
+                dpr,
+                0,
+                0
+            );
+        }
+
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas
+        );
+
+
+        resizeCanvas();
+
+
+        class Particle {
+
+            constructor() {
+
+                this.x =
+                    Math.random() * window.innerWidth;
+
+                this.y =
+                    Math.random() * window.innerHeight;
+
+                this.speedX =
+                    (Math.random() - 0.5) * 0.28;
+
+                this.speedY =
+                    (Math.random() - 0.5) * 0.28;
+
+                this.radius =
+                    Math.random() * 1.35 + 0.35;
+            }
+
+
+            update() {
+
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+
+                if (
+                    this.x < 0 ||
+                    this.x > window.innerWidth
+                ) {
+
+                    this.speedX *= -1;
+                }
+
+
+                if (
+                    this.y < 0 ||
+                    this.y > window.innerHeight
+                ) {
+
+                    this.speedY *= -1;
+                }
+            }
+
+
+            draw() {
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    this.x,
+                    this.y,
+                    this.radius,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle =
+                    "rgba(229,193,88,0.42)";
+
+                ctx.fill();
+            }
+        }
+
+
+        for (
+            let i = 0;
+            i < particleCount;
+            i++
+        ) {
+
+            particles.push(
+                new Particle()
+            );
+        }
+
+
+        function animateGalaxy() {
+
+            ctx.clearRect(
+                0,
+                0,
+                window.innerWidth,
+                window.innerHeight
+            );
+
+
+            particles.forEach(
+                (particle, index) => {
+
+                    particle.update();
+
+                    particle.draw();
+
+
+                    for (
+                        let j = index + 1;
+                        j < particles.length;
+                        j++
+                    ) {
+
+                        const other =
+                            particles[j];
+
+                        const distance =
+                            Math.hypot(
+                                particle.x - other.x,
+                                particle.y - other.y
+                            );
+
+
+                        if (distance < 120) {
+
+                            ctx.beginPath();
+
+                            ctx.moveTo(
+                                particle.x,
+                                particle.y
+                            );
+
+                            ctx.lineTo(
+                                other.x,
+                                other.y
+                            );
+
+                            ctx.strokeStyle =
+                                `rgba(
+                                    229,
+                                    193,
+                                    88,
+                                    ${
+                                        0.11 *
+                                        (1 - distance / 120)
+                                    }
+                                )`;
+
+                            ctx.lineWidth = 0.5;
+
+                            ctx.stroke();
+                        }
+                    }
+                }
+            );
+
+
+            requestAnimationFrame(
+                animateGalaxy
+            );
+        }
+
+
+        animateGalaxy();
+
+    </script>
+
 </body>
 </html>
