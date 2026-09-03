@@ -1,23 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contact Pritesh Karnani</title>
-<style>
-body{margin:0;background:#062d23;color:#f4e7b0;font-family:Arial,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center}
-.card{width:min(88%,420px);text-align:center;padding:36px 24px;border:1px solid #b9a35a;border-radius:24px;box-sizing:border-box}
-h1{font-family:Georgia,serif;font-size:28px;margin:0 0 8px}
-p{margin:0 0 28px;color:#d8d0ad}
-a{display:block;text-decoration:none;padding:16px;margin:12px 0;border-radius:12px;background:#f4e7b0;color:#062d23;font-weight:700;font-size:17px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pritesh Karnani | Cdelta</title>
+    <style>
+        :root {
+            /* Corporate Theme Colors */
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --btn-dark: #0f172a;
+            --btn-dark-hover: #334155;
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 380px;
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        /* Avatar Placeholder (Can be replaced with an actual <img> tag) */
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background-color: var(--btn-dark);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 20px auto;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            color: var(--text-main);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        p.title {
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-call {
+            background-color: var(--btn-dark);
+            color: #ffffff;
+            border: 2px solid var(--btn-dark);
+        }
+
+        .btn-call:hover {
+            background-color: var(--btn-dark-hover);
+            border-color: var(--btn-dark-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+        }
+
+        .btn-email {
+            background-color: transparent;
+            color: var(--btn-dark);
+            border: 2px solid var(--btn-dark);
+        }
+
+        .btn-email:hover {
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+        }
+        
+        /* Subtle bottom branding */
+        .branding {
+            margin-top: 32px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .branding a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .branding a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<div class="card">
-<h1>Pritesh Karnani</h1>
-<p>CEO & Co-Founder</p>
-<a href="tel:+917878734774">📞 Call</a>
-<a href="mailto:pritesh@cdelta.in">✉️ Email</a>
-</div>
+
+    <div class="profile-card">
+        <!-- Initials Avatar -->
+        <div class="avatar">PK</div>
+        
+        <h1>Pritesh Karnani</h1>
+        <p class="title">CEO & Co-Founder</p>
+        
+        <div class="button-group">
+            <!-- Replace the +910000000000 with the actual phone number -->
+            <a href="tel:+917878734774" class="btn btn-call">
+                <!-- SVG Phone Icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Call Now
+            </a>
+            
+            <!-- Email Link -->
+            <a href="mailto:pritesh@cdelta.in" class="btn btn-email">
+                <!-- SVG Mail Icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Send Email
+            </a>
+        </div>
+        
+        <div class="branding">
+            Powered by <a href="https://cdelta.in" target="_blank">Cdelta</a>
+        </div>
+    </div>
+
 </body>
 </html>
